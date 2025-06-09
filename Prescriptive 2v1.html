@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Fusion AI</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet" />
+	<link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet" />
+	<link href="data/styles.css" type="text/css" rel="stylesheet" />
+	<link href="files/Fusion AI/styles.css" type="text/css" rel="stylesheet" />
+	<script src="resources/scripts/jquery-1.7.1.min.js"></script>
+	<script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+	<script src="resources/scripts/prototypePre.js"></script>
+	<script src="data/document.js"></script>
+	<script src="resources/scripts/prototypePost.js"></script>
+	<script src="files/Fusion AI/data.js"></script>
+	<script type="text/javascript">
+		$axure.utils.getTransparentGifPath = function () { return 'resources/images/transparent.gif'; };
+		$axure.utils.getOtherPath = function () { return 'resources/Other.html'; };
+		$axure.utils.getReloadPath = function () { return 'resources/reload.html'; };
+	</script>
+	<style>
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			background: transparent !important;
+			border-radius: 8px;
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			position: absolute;
+			bottom: 0;
+			left: 10%;
+		}
+
+		.header {
+			background: transparent;
+			padding: 30px;
+			text-align: center;
+			color: #6fa8dc;
+		}
+
+		.header h1 {
+			font-size: 28px;
+			font-weight: 300;
+			margin: 0;
+			letter-spacing: 0.5px;
+		}
+
+		.main-content {
+			padding: 30px 30px 20px 30px;
+		}
+
+		.attachment-preview-container {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+			flex-wrap: wrap;
+		}
+
+		.attachment-preview {
+			width: 60px;
+			height: 60px;
+			border: 3px solid #ffd700;
+			border-radius: 8px;
+			background: #fff9c4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.attachment-preview:hover {
+			border-color: #ffcc00;
+			background: #fff3a0;
+		}
+
+		.attachment-preview .file-icon {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		.pdf-icon {
+			width: 35px;
+			height: 45px;
+			background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			position: relative;
+			margin-bottom: 2px;
+		}
+
+		.pdf-icon::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 8px;
+			height: 8px;
+			background: linear-gradient(-45deg, transparent 45%, #ccc 50%, #e0e0e0 55%);
+			border-bottom: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+		}
+
+		.pdf-icon::after {
+			content: '';
+			position: absolute;
+			top: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 20px;
+			height: 2px;
+			background: #999;
+			box-shadow: 0 4px 0 #999, 0 8px 0 #999, 0 12px 0 #999;
+		}
+
+		.pdf-label {
+			background: #dc3545;
+			color: white;
+			font-size: 9px;
+			font-weight: bold;
+			padding: 1px 4px;
+			border-radius: 2px;
+			margin-top: 1px;
+		}
+
+		.doc-icon {
+			width: 35px;
+			height: 45px;
+			background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+			border-radius: 3px;
+			position: relative;
+			margin-bottom: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.doc-icon::before {
+			content: '📝';
+			font-size: 20px;
+		}
+
+		.doc-label {
+			background: #4285f4;
+			color: white;
+			font-size: 9px;
+			font-weight: bold;
+			padding: 1px 4px;
+			border-radius: 2px;
+			margin-top: 1px;
+		}
+
+		.default-icon {
+			width: 35px;
+			height: 45px;
+			background: linear-gradient(135deg, #666 0%, #555 100%);
+			border-radius: 3px;
+			position: relative;
+			margin-bottom: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.default-icon::before {
+			content: '📄';
+			font-size: 20px;
+		}
+
+		.default-label {
+			background: #666;
+			color: white;
+			font-size: 9px;
+			font-weight: bold;
+			padding: 1px 4px;
+			border-radius: 2px;
+			margin-top: 1px;
+		}
+
+		.attachment-preview .remove-btn {
+			position: absolute;
+			top: -8px;
+			right: -8px;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: #ff4444;
+			color: white;
+			border: none;
+			font-size: 12px;
+			cursor: pointer;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.attachment-preview:hover .remove-btn {
+			display: flex;
+		}
+
+		.attachment-preview.image-preview {
+			padding: 0;
+			overflow: hidden;
+		}
+
+		.attachment-preview.image-preview img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+
+		.text-area-container {
+			position: relative;
+			margin-bottom: 20px;
+		}
+
+		.question-input {
+			width: 100%;
+			min-height: 120px;
+			padding: 15px;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			font-family: inherit;
+			font-size: 0.9rem;
+			line-height: 1.4;
+			resize: vertical;
+			transition: all 0.2s ease;
+			background: white;
+			font-weight: 300;
+		}
+
+		.question-input:focus {
+			outline: none;
+			border-color: #6fa8dc;
+			box-shadow: 0 0 0 2px rgba(111, 168, 220, 0.2);
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: flex-end;
+			gap: 10px;
+			margin-bottom: 20px;
+			align-items: center;
+		}
+
+		.file-upload-btn {
+			background: #ff6600;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			font-size: 1.2rem;
+			transition: all 0.2s ease;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+
+		.file-upload-btn:hover {
+			background: #e55a00;
+			transform: translateY(-1px);
+		}
+
+		.file-input {
+			display: none;
+		}
+
+		.send-button {
+			background: #6fa8dc;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			font-size: 1rem;
+			transition: all 0.2s ease;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.send-button:hover {
+			background: #5a96c9;
+			transform: translateY(-1px);
+		}
+
+		.send-button:disabled {
+			background: #ccc;
+			cursor: not-allowed;
+			transform: none;
+		}
+
+		.mode-selection {
+			margin-bottom: 20px;
+		}
+
+		.tag-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			align-items: center;
+		}
+
+		.mode-tag {
+			padding: 8px 16px;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: 400;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			border: 1px solid #ddd;
+			background: #f8f9fa;
+			color: #666;
+			user-select: none;
+		}
+
+		.mode-tag.prescriptive.active {
+			background: #4285f4;
+			color: white;
+			border-color: #4285f4;
+		}
+
+		.mode-tag.predictive:not(.active) {
+			background: #f8f9fa;
+			color: #666;
+			border-color: #ddd;
+		}
+
+		.mode-tag.predictive.active {
+			background: #4285f4;
+			color: white;
+			border-color: #4285f4;
+		}
+
+		.mode-tag:hover:not(.active) {
+			border-color: #4285f4;
+			background: #f0f4f8;
+		}
+
+		.category-tag-inline {
+			padding: 8px 16px;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			font-weight: 400;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			background: #e3f2fd;
+			color: #1976d2;
+			border: 1px solid #e3f2fd;
+			user-select: none;
+		}
+
+		.category-tag-inline:hover {
+			background: #bbdefb;
+			border-color: #bbdefb;
+		}
+
+		.category-tag-inline.active {
+			background: #1976d2;
+			color: white;
+			border-color: #1976d2;
+		}
+
+		/* Results Section Styles */
+		.results-section {
+			margin-bottom: 30px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			display: none;
+			max-height: 400px;
+			overflow-y: auto;
+			border: 1px solid #e3e3e3;
+			border-radius: 8px;
+			padding: 20px;
+			background: #fafafa;
+		}
+
+		.results-section.show {
+			display: block;
+			animation: slideDown 0.3s ease-out;
+		}
+
+		@keyframes slideDown {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Scrollbar styling for results section */
+		.results-section::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		.results-section::-webkit-scrollbar-track {
+			background: #f1f1f1;
+			border-radius: 4px;
+		}
+
+		.results-section::-webkit-scrollbar-thumb {
+			background: #c1c1c1;
+			border-radius: 4px;
+		}
+
+		.results-section::-webkit-scrollbar-thumb:hover {
+			background: #a8a8a8;
+		}
+
+		/* User Query Display Styles */
+		.user-query-section {
+			margin-bottom: 20px;
+			padding: 15px;
+			background: #e8f4fd;
+			border: 1px solid #b3d9f7;
+			border-radius: 8px;
+			border-left: 4px solid #6fa8dc;
+			text-align: right;
+		}
+
+		.user-query-bubble {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.query-text {
+			font-size: 0.95rem;
+			line-height: 1.4;
+			color: #2c3e50;
+			font-weight: 500;
+			background: white;
+			padding: 12px 15px;
+			border-radius: 6px;
+			border: 1px solid #ddd;
+		}
+
+		.query-attachments {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.query-attachment-preview {
+			width: 45px;
+			height: 45px;
+			border: 2px solid #6fa8dc;
+			border-radius: 6px;
+			background: #f0f8ff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			font-size: 0.7rem;
+		}
+
+		.query-attachment-preview .file-icon-small {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		.query-attachment-preview.image-preview-small {
+			padding: 0;
+			overflow: hidden;
+		}
+
+		.query-attachment-preview.image-preview-small img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 4px;
+		}
+
+		.pdf-icon-small {
+			width: 20px;
+			height: 25px;
+			background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+			border: 1px solid #ccc;
+			border-radius: 2px;
+			position: relative;
+			margin-bottom: 1px;
+		}
+
+		.pdf-icon-small::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 4px;
+			height: 4px;
+			background: linear-gradient(-45deg, transparent 45%, #ccc 50%, #e0e0e0 55%);
+			border-bottom: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+		}
+
+		.pdf-icon-small::after {
+			content: '';
+			position: absolute;
+			top: 8px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 12px;
+			height: 1px;
+			background: #999;
+			box-shadow: 0 2px 0 #999, 0 4px 0 #999;
+		}
+
+		.pdf-label-small {
+			background: #dc3545;
+			color: white;
+			font-size: 6px;
+			font-weight: bold;
+			padding: 1px 2px;
+			border-radius: 1px;
+			margin-top: 1px;
+		}
+
+		.doc-icon-small {
+			width: 20px;
+			height: 25px;
+			background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+			border-radius: 2px;
+			position: relative;
+			margin-bottom: 1px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.doc-icon-small::before {
+			content: '📝';
+			font-size: 12px;
+		}
+
+		.doc-label-small {
+			background: #4285f4;
+			color: white;
+			font-size: 6px;
+			font-weight: bold;
+			padding: 1px 2px;
+			border-radius: 1px;
+			margin-top: 1px;
+		}
+
+		.default-icon-small {
+			width: 20px;
+			height: 25px;
+			background: linear-gradient(135deg, #666 0%, #555 100%);
+			border-radius: 2px;
+			position: relative;
+			margin-bottom: 1px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.default-icon-small::before {
+			content: '📄';
+			font-size: 12px;
+		}
+
+		.default-label-small {
+			background: #666;
+			color: white;
+			font-size: 6px;
+			font-weight: bold;
+			padding: 1px 2px;
+			border-radius: 1px;
+			margin-top: 1px;
+		}
+
+		.status-item {
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+			padding: 12px;
+			background: #f8f9fa;
+			border-radius: 6px;
+			border-left: 4px solid #28a745;
+		}
+
+		.status-icon {
+			width: 20px;
+			height: 20px;
+			background: #28a745;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 12px;
+			margin-right: 12px;
+			font-weight: bold;
+		}
+
+		.status-text {
+			font-size: 0.95rem;
+			font-weight: 500;
+			color: #333;
+		}
+
+		.query-info {
+			background: #e9ecef;
+			padding: 10px 15px;
+			border-radius: 4px;
+			margin: 10px 0;
+			font-size: 0.85rem;
+			color: #666;
+			font-style: italic;
+		}
+
+		.result-content {
+			margin-top: 20px;
+			text-align: left;
+			background: #ffffff;
+			border: 1px solid #b3d9f7;
+			border-radius: 8px;
+			border-right: 4px solid #6fa8dc;
+			padding: 10px;
+		}
+
+		.result-section {
+			margin-bottom: 25px;
+		}
+
+		.result-section h3 {
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 10px;
+			color: #333;
+			border-bottom: 2px solid #6fa8dc;
+			padding-bottom: 5px;
+		}
+
+		.result-text {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: #444;
+			margin-bottom: 15px;
+		}
+
+		.intelligence-ref {
+			background: #fff3cd;
+			border: 1px solid #ffeaa7;
+			border-radius: 4px;
+			padding: 10px;
+			margin: 8px 0;
+			font-size: 0.9rem;
+		}
+
+		.intelligence-id {
+			font-weight: 600;
+			color: #856404;
+		}
+
+		.timeline-item {
+			background: #e3f2fd;
+			border-left: 3px solid #2196f3;
+			padding: 10px 15px;
+			margin: 8px 0;
+			border-radius: 0 4px 4px 0;
+		}
+
+		.timeline-date {
+			font-weight: 600;
+			color: #1976d2;
+			margin-bottom: 5px;
+		}
+
+		.timeline-content {
+			font-size: 0.9rem;
+			color: #444;
+		}
+
+		.thinking-indicator {
+			display: flex;
+			align-items: center;
+			margin: 15px 0;
+			color: #666;
+			font-style: italic;
+		}
+
+		.thinking-dots {
+			display: inline-flex;
+			margin-left: 8px;
+		}
+
+		.thinking-dots span {
+			width: 4px;
+			height: 4px;
+			background: #666;
+			border-radius: 50%;
+			margin: 0 2px;
+			animation: thinking 1.5s infinite;
+		}
+
+		.thinking-dots span:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+
+		.thinking-dots span:nth-child(3) {
+			animation-delay: 0.4s;
+		}
+
+		@keyframes thinking {
+
+			0%,
+			60%,
+			100% {
+				opacity: 0.3;
+			}
+
+			30% {
+				opacity: 1;
+			}
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			body {
+				padding: 20px 10px;
+			}
+
+			.container {
+				border-radius: 6px;
+			}
+
+			.header {
+				padding: 25px 20px;
+			}
+
+			.header h1 {
+				font-size: 1.5rem;
+			}
+
+			.main-content {
+				padding: 20px;
+			}
+
+			.tag-container {
+				justify-content: center;
+			}
+
+			.attachment-preview-container {
+				justify-content: center;
+			}
+
+			.results-section {
+				max-height: 300px;
+				padding: 15px;
+			}
+
+			.user-query-section {
+				padding: 10px;
+				margin-bottom: 15px;
+			}
+
+			.query-text {
+				font-size: 0.9rem;
+				padding: 10px 12px;
+			}
+
+			.query-attachment-preview {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div id="base" class="">
+
+		<!-- Unnamed (框架) -->
+
+		<!-- Unnamed (组 合) -->
+		<div id="u1" class="ax_default" data-left="0" data-top="0" data-width="1600" data-height="900">
+
+			<!-- Unnamed (矩形) -->
+			<div id="u2" class="ax_default box_21">
+				<div id="u2_div" class=""></div>
+			</div>
+
+			<!-- Unnamed (形状) -->
+			<div id="u3" class="ax_default box_21">
+				<img id="u3_img" class="img " src="images/Fusion AI/u3.png" />
+			</div>
+
+			<!-- Unnamed (矩形) -->
+			<div id="u4" class="ax_default box_21">
+				<div id="u4_div" class=""></div>
+			</div>
+
+			<!-- Unnamed (图片) -->
+			<div id="u5" class="ax_default image">
+				<img id="u5_img" class="img " src="images/Fusion AI/u5.png" />
+			</div>
+
+			<!-- Unnamed (图片) -->
+			<div id="u6" class="ax_default _图片">
+				<img id="u6_img" class="img " src="images/Fusion AI/u6.png" />
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u7" class="ax_default" data-left="21" data-top="0" data-width="286" data-height="56">
+
+				<!-- Unnamed (组 合) -->
+				<div id="u8" class="ax_default" data-left="21" data-top="0" data-width="286" data-height="56">
+
+					<!-- Unnamed (矩形) -->
+					<div id="u9" class="ax_default _二级标题">
+						<div id="u9_div" class=""></div>
+						<div id="u9_text" class="text ">
+							<p><span>Data Fusion Platform</span></p>
+						</div>
+					</div>
+
+					<!-- Unnamed (图片) -->
+					<div id="u10" class="ax_default _图片1">
+						<img id="u10_img" class="img " src="images/Fusion AI/u10.png" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Unnamed (图片) -->
+			<div id="u11" class="ax_default _图片">
+				<img id="u11_img" class="img " src="images/Fusion AI/u11.png" />
+			</div>
+
+			<!-- Unnamed (SVG) -->
+			<div id="u12" class="ax_default _图片1">
+				<img id="u12_img" class="img " src="images/Fusion AI/u12.svg" />
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u13" class="ax_default" data-left="0" data-top="54" data-width="240" data-height="42">
+
+				<!-- Unnamed (矩形) -->
+				<div id="u14" class="ax_default box_21">
+					<div id="u14_div" class=""></div>
+					<div id="u14_text" class="text ">
+						<p><span>Case Management</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (组 合) -->
+				<div id="u15" class="ax_default" data-left="24" data-top="67" data-width="16" data-height="16">
+
+					<!-- Unnamed (形状) -->
+					<div id="u16" class="ax_default box_21">
+						<img id="u16_img" class="img " src="images/Fusion AI/u16.png" />
+					</div>
+
+					<!-- Unnamed (形状) -->
+					<div id="u17" class="ax_default box_21">
+						<img id="u17_img" class="img " src="images/Fusion AI/u17.png" />
+					</div>
+				</div>
+
+				<!-- Unnamed (三角形) -->
+				<div id="u18" class="ax_default box_31">
+					<img id="u18_img" class="img " src="images/Fusion AI/u18.png" />
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u19" class="ax_default" data-left="0" data-top="95" data-width="240" data-height="96">
+
+				<!-- Report Management (矩形) -->
+				<div id="u20" class="ax_default box_21" data-label="Report Management">
+					<div id="u20_div" class=""></div>
+					<div id="u20_text" class="text ">
+						<p><span>Case Management</span></p>
+					</div>
+				</div>
+
+				<!-- Prescriptive (矩形) -->
+				<div id="u21" class="ax_default box_21" data-label="Prescriptive">
+					<div id="u21_div" class=""></div>
+					<div id="u21_text" class="text ">
+						<p><span>Prescriptive</span></p>
+					</div>
+				</div>
+
+				<!-- Prescriptive二 (矩形) -->
+				<div id="u22" class="ax_default box_21" data-label="Prescriptive二">
+					<div id="u22_div" class=""></div>
+					<div id="u22_text" class="text ">
+						<p><span>Fusion AI</span></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u23" class="ax_default" data-left="0" data-top="191" data-width="240" data-height="36">
+
+				<!-- Model Training可视化 (矩形) -->
+				<div id="u24" class="ax_default box_21" data-label="Model Training可视化">
+					<div id="u24_div" class=""></div>
+					<div id="u24_text" class="text ">
+						<p><span>Model Workstation</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (三角形) -->
+				<div id="u25" class="ax_default box_31">
+					<img id="u25_img" class="img " src="images/Fusion AI/u18.png" />
+				</div>
+			</div>
+
+			<!-- Predictive (组 合) -->
+			<div id="u26" class="ax_default" data-label="Predictive" data-left="0" data-top="323" data-width="240"
+				data-height="32">
+
+				<!-- 风险事件及目标预测结果 (矩形) -->
+				<div id="u27" class="ax_default box_21" data-label="风险事件及目标预测结果">
+					<div id="u27_div" class=""></div>
+					<div id="u27_text" class="text ">
+						<p><span>Predictive</span></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Dataset Management (矩形) -->
+			<div id="u28" class="ax_default box_21" data-label="Dataset Management">
+				<div id="u28_div" class=""></div>
+				<div id="u28_text" class="text ">
+					<p><span>Dataset Management</span></p>
+				</div>
+			</div>
+
+			<!-- My Model (矩形) -->
+			<div id="u29" class="ax_default box_21" data-label="My Model">
+				<div id="u29_div" class=""></div>
+				<div id="u29_text" class="text ">
+					<p><span>My Model</span></p>
+				</div>
+			</div>
+
+			<!-- Model Training (矩形) -->
+			<div id="u30" class="ax_default box_21" data-label="Model Training">
+				<div id="u30_div" class=""></div>
+				<div id="u30_text" class="text ">
+					<p><span>Model Training</span></p>
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u31" class="ax_default" data-left="0" data-top="504" data-width="240" data-height="42">
+
+				<!-- Fusion Graph Correlation (矩形) -->
+				<div id="u32" class="ax_default box_21" data-label="Fusion Graph Correlation">
+					<div id="u32_div" class=""></div>
+					<div id="u32_text" class="text ">
+						<p><span>Fusion Graph Correlation</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (形状) -->
+				<div id="u33" class="ax_default box_21">
+					<img id="u33_img" class="img " src="images/Fusion AI/u33.png" />
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u34" class="ax_default" data-left="0" data-top="546" data-width="240" data-height="42">
+
+				<!-- Fusion Profile (矩形) -->
+				<div id="u35" class="ax_default box_21" data-label="Fusion Profile">
+					<div id="u35_div" class=""></div>
+					<div id="u35_text" class="text ">
+						<p><span>Fusion Profile</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (形状) -->
+				<div id="u36" class="ax_default box_21">
+					<img id="u36_img" class="img " src="images/Fusion AI/u36.png" />
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u37" class="ax_default" data-left="0" data-top="586" data-width="240" data-height="42">
+
+				<!-- Fusion Track Interception (矩形) -->
+				<div id="u38" class="ax_default box_21" data-label="Fusion Track Interception">
+					<div id="u38_div" class=""></div>
+					<div id="u38_text" class="text ">
+						<p><span>Fusion Track Interception</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (形状) -->
+				<div id="u39" class="ax_default box_21">
+					<img id="u39_img" class="img " src="images/Fusion AI/u39.png" />
+				</div>
+
+				<!-- Unnamed (三角形) -->
+				<div id="u40" class="ax_default box_31">
+					<img id="u40_img" class="img " src="images/Fusion AI/u18.png" />
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u41" class="ax_default" data-left="0" data-top="398" data-width="240" data-height="42">
+
+				<!-- 风险事件及目标预测结果 (矩形) -->
+				<div id="u42" class="ax_default box_21" data-label="风险事件及目标预测结果">
+					<div id="u42_div" class=""></div>
+					<div id="u42_text" class="text ">
+						<p><span>Data Integration</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (组 合) -->
+				<div id="u43" class="ax_default" data-left="26" data-top="411" data-width="15" data-height="16">
+
+					<!-- Unnamed (形状) -->
+					<div id="u44" class="ax_default box_21">
+						<img id="u44_img" class="img " src="images/Fusion AI/u44.png" />
+					</div>
+
+					<!-- Unnamed (形状) -->
+					<div id="u45" class="ax_default box_21">
+						<img id="u45_img" class="img " src="images/Fusion AI/u45.png" />
+					</div>
+
+					<!-- Unnamed (形状) -->
+					<div id="u46" class="ax_default box_21">
+						<img id="u46_img" class="img " src="images/Fusion AI/u46.png" />
+					</div>
+				</div>
+
+				<!-- Unnamed (三角形) -->
+				<div id="u47" class="ax_default box_31">
+					<img id="u47_img" class="img " src="images/Fusion AI/u18.png" />
+				</div>
+			</div>
+
+			<!-- Data Access (矩形) -->
+			<div id="u48" class="ax_default box_21" data-label="Data Access">
+				<div id="u48_div" class=""></div>
+				<div id="u48_text" class="text ">
+					<p><span>Data Access</span></p>
+				</div>
+			</div>
+
+			<!-- Data Asset Management (矩形) -->
+			<div id="u49" class="ax_default box_21" data-label="Data Asset Management">
+				<div id="u49_div" class=""></div>
+				<div id="u49_text" class="text ">
+					<p><span>Data Asset Management</span></p>
+				</div>
+			</div>
+
+			<!-- Original Track (矩形) -->
+			<div id="u50" class="ax_default box_21" data-label="Original Track">
+				<div id="u50_div" class=""></div>
+				<div id="u50_text" class="text ">
+					<p><span>Original Track</span></p>
+				</div>
+			</div>
+
+			<!-- Frequent Location (矩形) -->
+			<div id="u51" class="ax_default box_21" data-label="Frequent Location">
+				<div id="u51_div" class=""></div>
+				<div id="u51_text" class="text ">
+					<p><span>Frequent Location</span></p>
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u52" class="ax_default" data-left="0" data-top="691" data-width="240" data-height="42">
+
+				<!-- System Management (矩形) -->
+				<div id="u53" class="ax_default box_21" data-label="System Management">
+					<div id="u53_div" class=""></div>
+					<div id="u53_text" class="text ">
+						<p><span>System Management</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (形状) -->
+				<div id="u54" class="ax_default box_21">
+					<img id="u54_img" class="img " src="images/Fusion AI/u54.png" />
+				</div>
+
+				<!-- Unnamed (三角形) -->
+				<div id="u55" class="ax_default box_31">
+					<img id="u55_img" class="img " src="images/Fusion AI/u18.png" />
+				</div>
+			</div>
+
+			<!-- Organization Structure (矩形) -->
+			<div id="u56" class="ax_default box_21" data-label="Organization Structure">
+				<div id="u56_div" class=""></div>
+				<div id="u56_text" class="text ">
+					<p><span>Organization Structure</span></p>
+				</div>
+			</div>
+
+			<!-- User Management (矩形) -->
+			<div id="u57" class="ax_default box_21" data-label="User Management">
+				<div id="u57_div" class=""></div>
+				<div id="u57_text" class="text ">
+					<p><span>User Management</span></p>
+				</div>
+			</div>
+
+			<!-- Role Management (矩形) -->
+			<div id="u58" class="ax_default box_21" data-label="Role Management">
+				<div id="u58_div" class=""></div>
+				<div id="u58_text" class="text ">
+					<p><span>Role Management</span></p>
+				</div>
+			</div>
+
+			<!-- 菜单资源管理 (矩形) -->
+			<div id="u59" class="ax_default box_21" data-label="菜单资源管理" title="Menu Resource Management">
+				<div id="u59_div" class=""></div>
+				<div id="u59_text" class="text ">
+					<p><span>Menu Resource Manage…</span></p>
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u60" class="ax_default" data-left="0" data-top="355" data-width="240" data-height="42">
+
+				<!-- 大屏 (矩形) -->
+				<div id="u61" class="ax_default box_21" data-label="大屏">
+					<div id="u61_div" class=""></div>
+					<div id="u61_text" class="text ">
+						<p><span>Situation Map</span></p>
+					</div>
+				</div>
+
+				<!-- Unnamed (组 合) -->
+				<div id="u62" class="ax_default" data-left="26" data-top="369" data-width="15" data-height="14">
+
+					<!-- Unnamed (形状) -->
+					<div id="u63" class="ax_default box_21">
+						<img id="u63_img" class="img " src="images/Fusion AI/u63.png" />
+					</div>
+
+					<!-- Unnamed (形状) -->
+					<div id="u64" class="ax_default box_21">
+						<img id="u64_img" class="img " src="images/Fusion AI/u64.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u65" class="ax_default box_2">
+			<div id="u65_div" class=""></div>
+		</div>
+
+		<!-- Unnamed (垂直线) -->
+		<div id="u66" class="ax_default line1">
+			<img id="u66_img" class="img " src="images/Fusion AI/u66.png" />
+		</div>
+
+		<!-- Unnamed (组 合) -->
+		<div id="u67" class="ax_default" data-left="261" data-top="117" data-width="228" data-height="36">
+
+			<!-- Unnamed (矩形) -->
+			<div id="u68" class="ax_default box_2">
+				<div id="u68_div" class=""></div>
+				<div id="u68_text" class="text ">
+					<p><span>&nbsp;&nbsp;&nbsp; New Conversation</span></p>
+				</div>
+			</div>
+
+			<!-- Unnamed (形状) -->
+			<div id="u69" class="ax_default box_21">
+				<img id="u69_img" class="img " src="images/Fusion AI/u69.png" />
+			</div>
+		</div>
+
+		<!-- 问答界面 (动态面板) -->
+		<div id="u70" class="ax_default">
+			<div class="container">
+				<div class="header">
+					<h1 id="greetings">Hello and welcome to Prescriptive</h1>
+				</div>
+
+				<div class="main-content">
+					<!-- Results Section - Moved to top -->
+					<div class="results-section" id="resultsSection">
+						<div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #6fa8dc;">
+							<h2 style="margin: 0; color: #6fa8dc; font-size: 1.2rem; font-weight: 600;">🔍 Search
+								Results</h2>
+						</div>
+
+						<!-- User Query Display -->
+						<div class="user-query-section" id="userQuerySection" style="display: none;">
+							<div class="user-query-bubble">
+								<div class="query-text" id="displayedQuery"></div>
+								<div class="query-attachments" id="displayedAttachments"></div>
+							</div>
+						</div>
+
+						<div class="status-item" id="searchStatus" style="display: none;">
+							<div class="status-icon">✓</div>
+							<div class="status-text">Knowledge base search completed!</div>
+						</div>
+
+						<div class="query-info" id="queryInfo" style="display: none;">
+							Querying knowledge documents including: Name of Report, Name of Report, Name of Report, Name
+							of Report
+						</div>
+
+						<div class="thinking-indicator" id="thinkingIndicator" style="display: none;">
+							Thinking
+							<div class="thinking-dots">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+
+						<div class="status-item" id="aiStatus" style="display: none;">
+							<div class="status-icon">✓</div>
+							<div class="status-text">AI answer completed!</div>
+						</div>
+
+						<div class="result-content" id="resultContentUrl" style="display: none;">
+							<div class="result-section">
+								<h3>Facts</h3>
+								<div class="result-text">
+									<strong>HTI's Covert Movement Still Exists, Although Banned Since
+										2017</strong><br><br>
+									Although it has been officially dissolved by the government on July 10, 2017
+									(through a Perppu), the activities of Hizbut Tahrir Indonesia (HTI) members
+									allegedly continue to take place covertly. Former members and sympathizers of HTI
+									remain active in spreading the ideology of the Islamic caliphate through various
+									demonstrations and narratives that piggyback on actual issues, such as the fall of
+									the Ottoman Turkish Caliphate and genocide in Palestine (using global issues to
+									attract people's sympathy).
+								</div>
+								<div class="result-text">
+									The concentration of this activity is observed quite strongly in a number of regions
+									such as East Java, West Java, Central Java, South Kalimantan and Yogyakarta.
+									Observers such as M. Najib Azca from PBNU and Muhammad Syauqillah from the
+									University of Indonesia highlighted the pattern of the HTI movement that utilizes
+									the sentiments of the people to attract support for ideologies that are contrary to
+									Pancasila.
+								</div>
+								<div class="result-text">
+									They use symbols such as the tawhid flag and infiltrate the issue of ummah as a
+									strategy to continue to exist in the midst of an official ban. This situation
+									demands vigilance and steps from the government so that the spread of this
+									transnational ideology does not threaten the national consensus.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Notes</h3>
+								<div class="result-text">
+									The government has also increased supervision of the activities of community
+									organizations, taklim assemblies, and non-formal education institutions that are
+									indicated to be channels for the spread of radical ideologies. On the other hand,
+									ideological literacy and religious moderation programs continue to be promoted to
+									strengthen people's understanding of the values of Pancasila as the basis of the
+									state.
+								</div>
+								<div class="result-text">
+									However, if the government fails to act consistently and firmly, then the space for
+									groups like HTI will be increasingly open. The state's indecisiveness has the
+									potential to expand the influence of the caliphate ideology in society, especially
+									the younger generation who are vulnerable to extreme religious narratives. In the
+									long run, this could threaten the stability of national ideology and lead to serious
+									socio-political disintegration.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Source</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference</div>
+									<div><a href="https://www.tempo.co/hukum/gerak-terselubung-htl-masih-eksis-walau-dilarang-sejak-2017-1203443"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://www.tempo.co/hukum/gerak-terselubung-htl-masih-eksis-walau-dilarang-sejak-2017-1203443</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Regional Analysis</h3>
+								<div class="result-text">
+									<strong>[HTI Activity Distribution]</strong>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">East Java Region</div>
+									<div class="timeline-content">High concentration of covert HTI activities utilizing
+										local religious gatherings and educational institutions.</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">West Java Region</div>
+									<div class="timeline-content">Significant presence in urban areas with focus on
+										youth recruitment through social media platforms.</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">Central Java & Yogyakarta</div>
+									<div class="timeline-content">Academic circles and university campuses identified as
+										key infiltration points for ideology dissemination.</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">South Kalimantan</div>
+									<div class="timeline-content">Rural areas showing increased activity using religious
+										symbols and community events as cover.</div>
+								</div>
+							</div>
+						</div>
+						<div class="result-content" id="resultContent" style="display: none;">
+							<div class="result-section">
+								<h3>Facts</h3>
+								<div class="result-text">
+									<strong>Densus 88 Arrests Suspected Terrorist in Purworejo, Allegedly Spreading
+										Propaganda via Social Media</strong><br><br>
+									On Monday morning, May 26, 2025, the Indonesian National Police's Special Detachment
+									88 (Densus 88) Counterterrorism Unit arrested a 32-year-old man identified as Ahmad
+									Fadhil at his home yard in Duluh Krajan, Kaliurip Village, Bener District, Purworejo
+									Regency, Central Java. The arrest was part of counterterrorism efforts aimed at
+									curbing the spread of radical ideologies growing on social media.
+								</div>
+								<div class="result-text">
+									Ahmad Fadhil is strongly suspected of being a sympathizer of Jamaah Ansharut Daulah
+									(JAD) Poso, a terrorist group affiliated with ISIS. Intelligence reports indicate
+									Fadhil maintained direct contact with known terrorist figures including
+									<strong><a href="Fusion%20Profile.html">Mukhlis Hidayat</a></strong>, a JAD cell
+									leader in Poso, and <strong>Ridwan
+										Saputra</strong>, a bomb-making specialist previously linked to the 2018
+									Surabaya attacks.
+								</div>
+								<div class="result-text">
+									During the search, the Densus 88 team found various suspicious evidence, including
+									handwritten documents containing violent teachings, manuscripts on jihad
+									jurisprudence (fiqh), laws on ghanimah (war booty), and other extremist doctrines.
+									Additionally, officers confiscated violent-themed pamphlets, sharp weapons such as
+									daggers and folding knives, as well as physical training equipment suspected to have
+									been used in attack simulations.
+								</div>
+								<div class="result-text">
+									This arrest is clear evidence that radical networks remain active in targeting youth
+									and exploiting digital platforms as tools for recruitment and spreading violent
+									ideology. Authorities reaffirm their commitment to continue dismantling terrorist
+									sleeper cells and preventing the spread of radicalism within society.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Connected Terrorist Network</h3>
+								<div class="result-text">
+									<strong>Key Figures in Fadhil's Network</strong>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Primary Contact: Mukhlis Hidayat</div>
+									<div>JAD Poso cell leader, age 45, previously detained in 2019 for recruitment
+										activities. Released in 2023, suspected of rebuilding network operations through
+										encrypted communications. Known for expertise in ideological indoctrination and
+										tactical planning.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Explosives Specialist: Ridwan Saputra</div>
+									<div>Bomb-making specialist, age 38, linked to Surabaya church bombings in 2018.
+										Currently at large, believed to be operating from East Java. Has been providing
+										online training materials for homemade explosive devices through dark web
+										channels.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Recruitment Coordinator: Farid Nurdin</div>
+									<div>Age 29, responsible for youth recruitment in Central Java region. Former
+										university student radicalized in 2020, now operates multiple social media
+										accounts using false identities. Specializes in targeting disaffected youth
+										through gaming and social platforms.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Financial Coordinator: Ahmad Surya</div>
+									<div>Age 42, manages funding channels for terrorist activities through
+										cryptocurrency and informal remittance systems. Previously worked in banking
+										sector before radicalization in 2017. Maintains connections with foreign funding
+										sources in Syria and Afghanistan.</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Official Statements</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Police Statement - Commissioner Ahmad Riyadhi</div>
+									<div>National Police Head of Public Information Division stated that this operation
+										was the result of intensive surveillance for three months. "We have been
+										monitoring Ahmad Fadhil's online activities and his connections with known
+										terrorist networks including communications with Mukhlis Hidayat and Ridwan
+										Saputra," Commissioner Ahmad Riyadhi announced during a press briefing.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Densus 88 Commander Statement</div>
+									<div>Densus 88 Commander, Brigadier General Farid Makruf, emphasized that the arrest
+										demonstrates law enforcement's commitment to preventing domestic terrorism.
+										"Ahmad Fadhil was actively recruiting through encrypted messaging platforms and
+										had established a network of at least 15 sympathizers across Central Java, with
+										direct guidance from Farid Nurdin," he revealed.</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Network Operations Analysis</h3>
+								<div class="result-text">
+									<strong>Terrorist Cell Structure and Operations</strong>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">January 2025 - Initial Contact</div>
+									<div class="timeline-content">Ahmad Fadhil first established contact with Mukhlis
+										Hidayat through encrypted Telegram channels, beginning ideological
+										indoctrination process and receiving instructions for local recruitment.</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">March 2025 - Technical Training</div>
+									<div class="timeline-content">Ridwan Saputra provided Ahmad Fadhil with bomb-making
+										manuals and instructional videos through secure file-sharing platforms. Evidence
+										shows Fadhil attempted to procure chemical materials for explosive testing.
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">April 2025 - Recruitment Phase</div>
+									<div class="timeline-content">Working with Farid Nurdin, Ahmad Fadhil successfully
+										recruited 8 local youth through religious study groups that gradually introduced
+										extremist ideology and physical training components.</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-date">May 2025 - Financial Support</div>
+									<div class="timeline-content">Ahmad Surya transferred approximately 50 million
+										rupiah to Ahmad Fadhil through cryptocurrency exchanges to fund weapons
+										procurement and operational expenses for planned attacks.</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Expert Analysis</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Dr. Suharto Wijaya - Indonesian Institute for Strategic
+										Studies</div>
+									<div>"The involvement of figures like Mukhlis Hidayat and Ridwan Saputra
+										demonstrates the resilience of terrorist networks. Despite previous arrests,
+										these groups continue to operate by adapting their communication methods and
+										recruitment strategies," said Dr. Suharto Wijaya.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Professor Indira Sari - University of Indonesia
+										Criminology</div>
+									<div>"The collaboration between Ahmad Fadhil, Farid Nurdin, and Ahmad Surya shows
+										how modern terrorist cells combine traditional religious extremism with
+										sophisticated financial and technological capabilities. This represents a
+										significant evolution in domestic terrorism threats," she explained.</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Government Response</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Coordinating Minister for Political, Legal and Security
+										Affairs</div>
+									<div>Minister Wiranto Pranowo announced increased coordination between Densus 88,
+										BNPT, and regional governments. "The arrest of Ahmad Fadhil has provided
+										valuable intelligence on the network involving Mukhlis Hidayat, Ridwan Saputra,
+										Farid Nurdin, and Ahmad Surya. We are implementing a comprehensive approach to
+										dismantle their entire operation," he stated.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">BNPT Chief Statement</div>
+									<div>BNPT Chief, Lieutenant General Agus Setiawan, confirmed ongoing operations to
+										apprehend the remaining network members. "We have identified the locations of
+										Farid Nurdin and Ahmad Surya, while international cooperation is being pursued
+										to track Ridwan Saputra's current whereabouts," he announced.</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Previous Criminal Records</h3>
+								<div class="result-text">
+									<strong>Background Profiles of Network Members</strong>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Mukhlis Hidayat Criminal History</div>
+									<div>2019: Arrested for recruitment and indoctrination activities in Poso. 2021:
+										Convicted of terrorist conspiracy, sentenced to 4 years imprisonment. 2023:
+										Released on parole, immediately resumed underground activities.</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Ridwan Saputra Explosive Incidents</div>
+									<div>2018: Linked to Surabaya church bombings through forensic evidence. 2020:
+										Suspected involvement in failed Jakarta attack plot. 2024: Intelligence reports
+										confirm his role as primary bomb-making instructor for Southeast Asian networks.
+									</div>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Sources</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference 1</div>
+									<div><a href="https://www.kompas.id/artikel/sebarpaham-kekuasaan-melalui-internet-terduga-teroris-di-purworejo-ditangkap"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://www.kompas.id/artikel/sebarpaham-kekuasaan-melalui-internet-terduga-teroris-di-purworejo-ditangkap</a>
+									</div>
+								</div>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference 2</div>
+									<div><a href="https://www.inews.id/news/nasional/densus-88-tangkap-terduga-teroris-di-purworejo-aktif-sebarkan-propaganda-radikal/1"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://www.inews.id/news/nasional/densus-88-tangkap-terduga-teroris-di-purworejo-aktif-sebarkan-propaganda-radikal/1</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Attachment Previews -->
+					<div class="attachment-preview-container" id="attachmentPreviews">
+						<!-- Preview boxes will be added here dynamically -->
+					</div>
+
+					<!-- Question Input -->
+					<div class="text-area-container">
+						<textarea class="question-input" id="questionInput"
+							placeholder="What are you looking for?"></textarea>
+					</div>
+
+					<!-- Buttons -->
+					<div class="button-container">
+						<button class="file-upload-btn" onclick="document.getElementById('fileInput').click()"
+							title="Attach files">
+							📎
+						</button>
+						<input type="file" id="fileInput" class="file-input" multiple
+							accept="image/*,application/pdf,.doc,.docx,.txt">
+						<button class="send-button" id="sendButton" onclick="submitQuery()" title="Send message">
+							<span style="transform: rotate(45deg); display: inline-block;">↗</span>
+						</button>
+					</div>
+
+					<!-- Mode Selection and Categories in one row -->
+					<div class="mode-selection">
+						<div class="tag-container">
+							<div class="mode-tag prescriptive active" data-mode="prescriptive"
+								onclick="selectMode('prescriptive')">
+								Prescriptive
+							</div>
+							<div class="mode-tag predictive" data-mode="predictive" onclick="selectMode('predictive')">
+								Predictive
+							</div>
+							<div class="category-tag-inline" data-category="counterintelligence"
+								onclick="toggleCategoryInline(this)">
+								Counterintelligence
+							</div>
+							<div class="category-tag-inline" data-category="counter-terrorism"
+								onclick="toggleCategoryInline(this)">
+								Counter-Terrorism
+							</div>
+							<div class="category-tag-inline" data-category="anti-secession"
+								onclick="toggleCategoryInline(this)">
+								Anti-Secession
+							</div>
+							<div class="category-tag-inline" data-category="counter-infiltration"
+								onclick="toggleCategoryInline(this)">
+								Counter-Infiltration
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				const prescriptiveCategories = ['counterintelligence', 'counter-terrorism', 'anti-secession', 'counter-infiltration'];
+				const predictiveCategories = ['espionage', 'terrorism', 'sectarian', 'infiltration'];
+
+				let selectedFiles = [];
+				let currentMode = 'prescriptive';
+				let isProcessing = false;
+
+				// Select mode function
+				function selectMode(mode) {
+					currentMode = mode;
+
+					// Update mode tags
+					document.querySelectorAll('.mode-tag').forEach(tag => {
+						tag.classList.remove('active');
+					});
+					document.querySelector(`.mode-tag.${mode}`).classList.add('active');
+
+					updateCategoriesForMode(mode);
+					updateTextAreaForMode(mode);
+				}
+
+				// Update categories based on mode
+				function updateCategoriesForMode(mode) {
+					const categoryTags = document.querySelectorAll('.category-tag-inline');
+
+					if (mode === 'predictive') {
+						// Update category labels for predictive mode
+						categoryTags[0].textContent = 'Espionage';
+						categoryTags[0].setAttribute('data-category', 'espionage');
+						categoryTags[1].textContent = 'Terrorism';
+						categoryTags[1].setAttribute('data-category', 'terrorism');
+						categoryTags[2].textContent = 'Sectarian';
+						categoryTags[2].setAttribute('data-category', 'sectarian');
+						categoryTags[3].textContent = 'Infiltration';
+						categoryTags[3].setAttribute('data-category', 'infiltration');
+					} else {
+						// Update category labels for prescriptive mode
+						categoryTags[0].textContent = 'Counterintelligence';
+						categoryTags[0].setAttribute('data-category', 'counterintelligence');
+						categoryTags[1].textContent = 'Counter-Terrorism';
+						categoryTags[1].setAttribute('data-category', 'counter-terrorism');
+						categoryTags[2].textContent = 'Anti-Secession';
+						categoryTags[2].setAttribute('data-category', 'anti-secession');
+						categoryTags[3].textContent = 'Counter-Infiltration';
+						categoryTags[3].setAttribute('data-category', 'counter-infiltration');
+					}
+
+					// Clear all active states
+					categoryTags.forEach(tag => tag.classList.remove('active'));
+				}
+
+				// Update textarea content based on mode
+				function updateTextAreaForMode(mode) {
+					const textarea = document.getElementById('questionInput');
+					if (mode === 'predictive') {
+						textarea.placeholder = 'What are you looking for?';
+						textarea.value = '';
+					} else {
+						textarea.placeholder = 'What are you looking for?';
+						textarea.value = '';
+					}
+				}
+
+				// Toggle category selection
+				function toggleCategoryInline(tag) {
+					tag.classList.toggle('active');
+				}
+
+				// File upload handling
+				const fileInput = document.getElementById('fileInput');
+				const attachmentPreviews = document.getElementById('attachmentPreviews');
+
+				fileInput.addEventListener('change', (e) => {
+					handleFiles(e.target.files);
+				});
+
+				function handleFiles(files) {
+					Array.from(files).forEach(file => {
+						selectedFiles.push(file);
+						createAttachmentPreview(file);
+					});
+				}
+
+				function createAttachmentPreview(file) {
+					const preview = document.createElement('div');
+					preview.className = 'attachment-preview';
+
+					const removeBtn = document.createElement('button');
+					removeBtn.className = 'remove-btn';
+					removeBtn.innerHTML = '×';
+					removeBtn.onclick = (e) => {
+						e.stopPropagation();
+						removeAttachment(file, preview);
+					};
+
+					// Determine file type and create appropriate preview
+					if (file.type.startsWith('image/')) {
+						preview.classList.add('image-preview');
+						const img = document.createElement('img');
+						const reader = new FileReader();
+						reader.onload = (e) => {
+							img.src = e.target.result;
+						};
+						reader.readAsDataURL(file);
+						preview.appendChild(img);
+					} else {
+						// Add file type icon container
+						const iconContainer = document.createElement('div');
+						iconContainer.className = 'file-icon';
+
+						if (file.type.includes('pdf')) {
+							const pdfIcon = document.createElement('div');
+							pdfIcon.className = 'pdf-icon';
+
+							const pdfLabel = document.createElement('div');
+							pdfLabel.className = 'pdf-label';
+							pdfLabel.textContent = 'PDF';
+
+							iconContainer.appendChild(pdfIcon);
+							iconContainer.appendChild(pdfLabel);
+						} else if (file.type.includes('doc')) {
+							const docIcon = document.createElement('div');
+							docIcon.className = 'doc-icon';
+
+							const docLabel = document.createElement('div');
+							docLabel.className = 'doc-label';
+							docLabel.textContent = 'DOC';
+
+							iconContainer.appendChild(docIcon);
+							iconContainer.appendChild(docLabel);
+						} else {
+							const defaultIcon = document.createElement('div');
+							defaultIcon.className = 'default-icon';
+
+							const defaultLabel = document.createElement('div');
+							defaultLabel.className = 'default-label';
+							defaultLabel.textContent = 'FILE';
+
+							iconContainer.appendChild(defaultIcon);
+							iconContainer.appendChild(defaultLabel);
+						}
+
+						preview.appendChild(iconContainer);
+					}
+
+					preview.appendChild(removeBtn);
+					preview.title = file.name;
+					attachmentPreviews.appendChild(preview);
+				}
+
+				function removeAttachment(file, previewElement) {
+					selectedFiles = selectedFiles.filter(f => f !== file);
+					previewElement.remove();
+				}
+
+				// Submit query function with animation
+				function submitQuery() {
+					if (isProcessing) return;
+
+					const question = document.getElementById('questionInput').value.trim();
+					if (!question) {
+						alert('Please enter a question before submitting.');
+						return;
+					}
+					isProcessing = true;
+					const sendButton = document.getElementById('sendButton');
+					sendButton.disabled = true;
+
+					// Show results section
+					const resultsSection = document.getElementById('resultsSection');
+					resultsSection.classList.add('show');
+
+					// Reset all status elements
+					hideAllStatusElements();
+					document.getElementById('greetings').style.display = 'none';
+					// Start the simulation
+					simulateProcessing();
+				}
+
+				function hideAllStatusElements() {
+					document.getElementById('userQuerySection').style.display = 'none';
+					document.getElementById('searchStatus').style.display = 'none';
+					document.getElementById('queryInfo').style.display = 'none';
+					document.getElementById('thinkingIndicator').style.display = 'none';
+					document.getElementById('aiStatus').style.display = 'none';
+					document.getElementById('resultContent').style.display = 'none';
+					document.getElementById('resultContentUrl').style.display = 'none';
+				}
+
+				function displayUserQuery(question, files) {
+					const userQuerySection = document.getElementById('userQuerySection');
+					const displayedQuery = document.getElementById('displayedQuery');
+					const displayedAttachments = document.getElementById('displayedAttachments');
+
+					// Display the query text
+					displayedQuery.textContent = question;
+
+					// Display attachments if any
+					displayedAttachments.innerHTML = '';
+					if (files && files.length > 0) {
+						files.forEach(file => {
+							const attachmentPreview = createSmallAttachmentPreview(file);
+							displayedAttachments.appendChild(attachmentPreview);
+						});
+					}
+
+					// Show the query section
+					userQuerySection.style.display = 'block';
+				}
+
+				function createSmallAttachmentPreview(file) {
+					const preview = document.createElement('div');
+					preview.className = 'query-attachment-preview';
+					preview.title = file.name;
+
+					if (file.type.startsWith('image/')) {
+						preview.classList.add('image-preview-small');
+						const img = document.createElement('img');
+						const reader = new FileReader();
+						reader.onload = (e) => {
+							img.src = e.target.result;
+						};
+						reader.readAsDataURL(file);
+						preview.appendChild(img);
+					} else {
+						const iconContainer = document.createElement('div');
+						iconContainer.className = 'file-icon-small';
+
+						if (file.type.includes('pdf')) {
+							const pdfIcon = document.createElement('div');
+							pdfIcon.className = 'pdf-icon-small';
+
+							const pdfLabel = document.createElement('div');
+							pdfLabel.className = 'pdf-label-small';
+							pdfLabel.textContent = 'PDF';
+
+							iconContainer.appendChild(pdfIcon);
+							iconContainer.appendChild(pdfLabel);
+						} else if (file.type.includes('doc')) {
+							const docIcon = document.createElement('div');
+							docIcon.className = 'doc-icon-small';
+
+							const docLabel = document.createElement('div');
+							docLabel.className = 'doc-label-small';
+							docLabel.textContent = 'DOC';
+
+							iconContainer.appendChild(docIcon);
+							iconContainer.appendChild(docLabel);
+						} else {
+							const defaultIcon = document.createElement('div');
+							defaultIcon.className = 'default-icon-small';
+
+							const defaultLabel = document.createElement('div');
+							defaultLabel.className = 'default-label-small';
+							defaultLabel.textContent = 'FILE';
+
+							iconContainer.appendChild(defaultIcon);
+							iconContainer.appendChild(defaultLabel);
+						}
+
+						preview.appendChild(iconContainer);
+					}
+
+					return preview;
+				}
+
+				function simulateProcessing() {
+					const question = document.getElementById('questionInput').value.trim();
+
+					// Step 0: Display user query and attachments immediately
+					displayUserQuery(question, selectedFiles);
+					selectedFiles = [];
+					questionInput.value = '';
+					// Step 1: Show search completed
+					setTimeout(() => {
+						document.getElementById('searchStatus').style.display = 'flex';
+					}, 800);
+
+					// Step 2: Show query info
+					setTimeout(() => {
+						document.getElementById('queryInfo').style.display = 'block';
+					}, 1300);
+
+					// Step 3: Show thinking indicator
+					setTimeout(() => {
+						document.getElementById('thinkingIndicator').style.display = 'flex';
+					}, 1800);
+
+					// Step 4: Hide thinking and show AI completed
+					setTimeout(() => {
+						document.getElementById('thinkingIndicator').style.display = 'none';
+						document.getElementById('aiStatus').style.display = 'flex';
+					}, 4300);
+
+					// Step 5: Show results and focus on them
+					setTimeout(() => {
+						// document.getElementById('resultContent').style.display = 'block';
+
+						const urlRegex = /(https?:\/\/[^\s]+)/g;
+						if (urlRegex.test(question)) {
+							const urls = question.match(urlRegex);
+							document.getElementById('resultContentUrl').style.display = 'block';
+							const resultsSection = document.getElementById('resultsSectionUrl');
+						}
+						else {
+							document.getElementById('resultContent').style.display = 'block';
+							const resultsSection = document.getElementById('resultsSection');
+
+						}
+
+						// Scroll results section to top to show all content
+						resultsSection.scrollTop = 0;
+
+						// Scroll page to results section for better focus
+						resultsSection.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+
+						// Re-enable send button
+						const sendButton = document.getElementById('sendButton');
+						sendButton.disabled = false;
+						isProcessing = false;
+					}, 4800);
+				}
+
+				// Initialize on page load
+				document.addEventListener('DOMContentLoaded', function () {
+					updateTextAreaForMode('prescriptive');
+				});
+
+				// Drag and drop functionality for the entire textarea area
+				const textareaContainer = document.querySelector('.text-area-container');
+
+				textareaContainer.addEventListener('dragover', (e) => {
+					e.preventDefault();
+					textareaContainer.style.borderColor = '#6fa8dc';
+					textareaContainer.style.backgroundColor = '#f8f9ff';
+				});
+
+				textareaContainer.addEventListener('dragleave', (e) => {
+					e.preventDefault();
+					textareaContainer.style.borderColor = '';
+					textareaContainer.style.backgroundColor = '';
+				});
+
+				textareaContainer.addEventListener('drop', (e) => {
+					e.preventDefault();
+					textareaContainer.style.borderColor = '';
+					textareaContainer.style.backgroundColor = '';
+
+					const files = e.dataTransfer.files;
+					handleFiles(files);
+				});
+			</script>
+
+
+		</div>
+
+
+
+		<!-- Unnamed (组 合) -->
+		<div id="u256" class="ax_default" data-left="264" data-top="76" data-width="120" data-height="24">
+
+			<!-- Unnamed (矩形) -->
+			<div id="u257" class="ax_default label">
+				<div id="u257_div" class=""></div>
+				<div id="u257_text" class="text ">
+					<p><span>Prescriptive</span></p>
+				</div>
+			</div>
+
+			<!-- Unnamed (组 合) -->
+			<div id="u258" class="ax_default" data-left="264" data-top="76" data-width="21" data-height="24">
+
+				<!-- Unnamed (形状) -->
+				<div id="u259" class="ax_default box_21">
+					<img id="u259_img" class="img " src="images/Fusion AI/u259.png" />
+				</div>
+
+				<!-- Unnamed (形状) -->
+				<div id="u260" class="ax_default box_21">
+					<img id="u260_img" class="img " src="images/Fusion AI/u260.png" />
+				</div>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u261" class="ax_default label">
+			<div id="u261_div" class=""></div>
+			<div id="u261_text" class="text ">
+				<p><span>Today</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u262" class="ax_default label" title="Has there been a terrorist attack in area A in 2023">
+			<div id="u262_div" class=""></div>
+			<div id="u262_text" class="text ">
+				<p><span>Has there been a terrorist attack…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u263" class="ax_default label">
+			<div id="u263_div" class=""></div>
+			<div id="u263_text" class="text ">
+				<p><span>Was Area A safe in 2023</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u264" class="ax_default label">
+			<div id="u264_div" class=""></div>
+			<div id="u264_text" class="text ">
+				<p><span>Within 7 days</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u265" class="ax_default label" title="How many terrorist attacks have occurred in area B in 2025">
+			<div id="u265_div" class=""></div>
+			<div id="u265_text" class="text ">
+				<p><span>How many terrorist attacks have…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u266" class="ax_default label" title="What are the security risks in Area A in 2023">
+			<div id="u266_div" class=""></div>
+			<div id="u266_text" class="text ">
+				<p><span>What are the security risks in Ar…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u267" class="ax_default label" title="Major security incidents that have occurred in Area A in 2023">
+			<div id="u267_div" class=""></div>
+			<div id="u267_text" class="text ">
+				<p><span>Major security incidents that hav…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u268" class="ax_default label" title="Terrorist Attacks in Area C in May 2022">
+			<div id="u268_div" class=""></div>
+			<div id="u268_text" class="text ">
+				<p><span>Terrorist Attacks in Area C in Ma…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u269" class="ax_default label">
+			<div id="u269_div" class=""></div>
+			<div id="u269_text" class="text ">
+				<p><span>Within 30 days</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u270" class="ax_default label" title="How many terrorist attacks have occurred in area B in 2025">
+			<div id="u270_div" class=""></div>
+			<div id="u270_text" class="text ">
+				<p><span>How many terrorist attacks have…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u271" class="ax_default label">
+			<div id="u271_div" class=""></div>
+			<div id="u271_text" class="text ">
+				<p><span>Unsafe places in area A in 2023</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u272" class="ax_default label">
+			<div id="u272_div" class=""></div>
+			<div id="u272_text" class="text ">
+				<p><span>Bombings in Area A in 2020</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u273" class="ax_default label" title="Terrorist Attacks in Area C in May 2022">
+			<div id="u273_div" class=""></div>
+			<div id="u273_text" class="text ">
+				<p><span>Terrorist Attacks in Area C in Ma…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u274" class="ax_default label" title="How many terrorist attacks have occuired in area F in 2025">
+			<div id="u274_div" class=""></div>
+			<div id="u274_text" class="text ">
+				<p><span>How many terrorist attacks have…</span></p>
+			</div>
+		</div>
+
+		<!-- Unnamed (矩形) -->
+		<div id="u275" class="ax_default label" title="Terrorist Attacks Around Area A in 2020">
+			<div id="u275_div" class=""></div>
+			<div id="u275_text" class="text ">
+				<p><span>Terrorist Attacks Around Area A…</span></p>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
