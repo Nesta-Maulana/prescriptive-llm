@@ -106,128 +106,117 @@
 			right: 0;
 			width: 8px;
 			height: 8px;
-			background: linear-gradient(-45deg, transparent 45%, #ccc 50%, #e0e0e0 55%);
+			background: white;
 			border-bottom: 1px solid #ccc;
 			border-left: 1px solid #ccc;
-		}
-
-		.pdf-icon::after {
-			content: '';
-			position: absolute;
-			top: 15px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 20px;
-			height: 2px;
-			background: #999;
-			box-shadow: 0 4px 0 #999, 0 8px 0 #999, 0 12px 0 #999;
+			border-bottom-left-radius: 3px;
 		}
 
 		.pdf-label {
-			background: #dc3545;
-			color: white;
-			font-size: 9px;
-			font-weight: bold;
-			padding: 1px 4px;
-			border-radius: 2px;
-			margin-top: 1px;
+			font-size: 10px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
 		.doc-icon {
 			width: 35px;
 			height: 45px;
-			background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+			background: linear-gradient(135deg, #6fa8dc 0%, #5a96c9 100%);
+			border: 1px solid #5a96c9;
 			border-radius: 3px;
 			position: relative;
 			margin-bottom: 2px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 
 		.doc-icon::before {
-			content: '📝';
-			font-size: 20px;
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 8px;
+			height: 8px;
+			background: white;
+			border-bottom: 1px solid #5a96c9;
+			border-left: 1px solid #5a96c9;
+			border-bottom-left-radius: 3px;
 		}
 
 		.doc-label {
-			background: #4285f4;
-			color: white;
-			font-size: 9px;
-			font-weight: bold;
-			padding: 1px 4px;
-			border-radius: 2px;
-			margin-top: 1px;
+			font-size: 10px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
 		.default-icon {
 			width: 35px;
 			height: 45px;
-			background: linear-gradient(135deg, #666 0%, #555 100%);
+			background: linear-gradient(135deg, #888 0%, #666 100%);
+			border: 1px solid #666;
 			border-radius: 3px;
 			position: relative;
 			margin-bottom: 2px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 
 		.default-icon::before {
-			content: '📄';
-			font-size: 20px;
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 8px;
+			height: 8px;
+			background: white;
+			border-bottom: 1px solid #666;
+			border-left: 1px solid #666;
+			border-bottom-left-radius: 3px;
 		}
 
 		.default-label {
-			background: #666;
-			color: white;
-			font-size: 9px;
-			font-weight: bold;
-			padding: 1px 4px;
-			border-radius: 2px;
-			margin-top: 1px;
+			font-size: 10px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
-		.attachment-preview .remove-btn {
-			position: absolute;
-			top: -8px;
-			right: -8px;
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-			background: #ff4444;
-			color: white;
-			border: none;
-			font-size: 12px;
-			cursor: pointer;
-			display: none;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.attachment-preview:hover .remove-btn {
-			display: flex;
-		}
-
-		.attachment-preview.image-preview {
-			padding: 0;
-			overflow: hidden;
-		}
-
-		.attachment-preview.image-preview img {
+		.image-preview img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			border-radius: 5px;
+			border-radius: 6px;
+		}
+
+		.remove-btn {
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			background: #ff4444;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 22px;
+			height: 22px;
+			font-size: 16px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			transition: all 0.2s ease;
+		}
+
+		.remove-btn:hover {
+			background: #cc0000;
+			transform: scale(1.1);
 		}
 
 		.text-area-container {
-			position: relative;
 			margin-bottom: 20px;
 		}
 
 		.question-input {
 			width: 100%;
-			min-height: 120px;
+			min-height: 100px;
 			padding: 15px;
 			border: 1px solid #ddd;
 			border-radius: 6px;
@@ -498,6 +487,8 @@
 			display: flex;
 			gap: 8px;
 			flex-wrap: wrap;
+			margin-top: 10px;
+			justify-content: flex-end;
 		}
 
 		.query-attachment-preview {
@@ -509,11 +500,16 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			position: relative;
-			font-size: 0.7rem;
+			overflow: hidden;
 		}
 
-		.query-attachment-preview .file-icon-small {
+		.query-attachment-preview.image-preview-small img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.file-icon-small {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -522,21 +518,9 @@
 			height: 100%;
 		}
 
-		.query-attachment-preview.image-preview-small {
-			padding: 0;
-			overflow: hidden;
-		}
-
-		.query-attachment-preview.image-preview-small img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 4px;
-		}
-
 		.pdf-icon-small {
-			width: 20px;
-			height: 25px;
+			width: 22px;
+			height: 28px;
 			background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
 			border: 1px solid #ccc;
 			border-radius: 2px;
@@ -549,95 +533,87 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 4px;
-			height: 4px;
-			background: linear-gradient(-45deg, transparent 45%, #ccc 50%, #e0e0e0 55%);
+			width: 5px;
+			height: 5px;
+			background: white;
 			border-bottom: 1px solid #ccc;
 			border-left: 1px solid #ccc;
-		}
-
-		.pdf-icon-small::after {
-			content: '';
-			position: absolute;
-			top: 8px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 12px;
-			height: 1px;
-			background: #999;
-			box-shadow: 0 2px 0 #999, 0 4px 0 #999;
+			border-bottom-left-radius: 2px;
 		}
 
 		.pdf-label-small {
-			background: #dc3545;
-			color: white;
-			font-size: 6px;
-			font-weight: bold;
-			padding: 1px 2px;
-			border-radius: 1px;
-			margin-top: 1px;
+			font-size: 8px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
 		.doc-icon-small {
-			width: 20px;
-			height: 25px;
-			background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+			width: 22px;
+			height: 28px;
+			background: linear-gradient(135deg, #6fa8dc 0%, #5a96c9 100%);
+			border: 1px solid #5a96c9;
 			border-radius: 2px;
 			position: relative;
 			margin-bottom: 1px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 
 		.doc-icon-small::before {
-			content: '📝';
-			font-size: 12px;
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 5px;
+			height: 5px;
+			background: white;
+			border-bottom: 1px solid #5a96c9;
+			border-left: 1px solid #5a96c9;
+			border-bottom-left-radius: 2px;
 		}
 
 		.doc-label-small {
-			background: #4285f4;
-			color: white;
-			font-size: 6px;
-			font-weight: bold;
-			padding: 1px 2px;
-			border-radius: 1px;
-			margin-top: 1px;
+			font-size: 8px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
 		.default-icon-small {
-			width: 20px;
-			height: 25px;
-			background: linear-gradient(135deg, #666 0%, #555 100%);
+			width: 22px;
+			height: 28px;
+			background: linear-gradient(135deg, #888 0%, #666 100%);
+			border: 1px solid #666;
 			border-radius: 2px;
 			position: relative;
 			margin-bottom: 1px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 
 		.default-icon-small::before {
-			content: '📄';
-			font-size: 12px;
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 5px;
+			height: 5px;
+			background: white;
+			border-bottom: 1px solid #666;
+			border-left: 1px solid #666;
+			border-bottom-left-radius: 2px;
 		}
 
 		.default-label-small {
-			background: #666;
-			color: white;
-			font-size: 6px;
-			font-weight: bold;
-			padding: 1px 2px;
-			border-radius: 1px;
-			margin-top: 1px;
+			font-size: 8px;
+			font-weight: 600;
+			color: #666;
+			text-transform: uppercase;
 		}
 
 		.status-item {
 			display: flex;
 			align-items: center;
-			margin-bottom: 15px;
-			padding: 12px;
-			background: #f8f9fa;
+			margin: 15px 0;
+			padding: 10px 15px;
+			background: #e8f5e9;
 			border-radius: 6px;
 			border-left: 4px solid #28a745;
 		}
@@ -778,6 +754,75 @@
 			}
 		}
 
+		/* Download Button Styles */
+		.download-doc-btn {
+			background: #6fa8dc;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			padding: 8px 16px;
+			font-size: 0.9rem;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			margin-top: 10px;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.download-doc-btn:hover {
+			background: #5a96c9;
+			transform: translateY(-1px);
+		}
+
+		.download-doc-btn .material-symbols-outlined {
+			font-size: 18px;
+		}
+
+		/* Conversation History Styles */
+		.conversation-item {
+			border-bottom: 1px solid #eee;
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
+
+		.conversation-item:last-child {
+			border-bottom: none;
+		}
+
+		/* Ensure user query sections in conversation history are always visible */
+		.conversation-item .user-query-section {
+			display: block !important;
+			margin-bottom: 20px;
+			padding: 15px;
+			background: #e8f4fd;
+			border: 1px solid #b3d9f7;
+			border-radius: 8px;
+			border-left: 4px solid #6fa8dc;
+			text-align: right;
+		}
+
+		.conversation-item .user-query-bubble {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.conversation-item .query-text {
+			font-size: 0.95rem;
+			line-height: 1.4;
+			color: #2c3e50;
+			font-weight: 500;
+			background: white;
+			padding: 12px 15px;
+			border-radius: 6px;
+			border: 1px solid #ddd;
+		}
+
+		.conversation-item .result-content {
+			margin-top: 0;
+		}
+
 		/* Responsive */
 		@media (max-width: 768px) {
 			body {
@@ -829,8 +874,6 @@
 			}
 		}
 	</style>
-
-
 </head>
 
 <body>
@@ -1257,6 +1300,11 @@
 								Results</h2>
 						</div>
 
+						<!-- Conversation History Container -->
+						<div id="conversationHistory">
+							<!-- Conversation items will be dynamically added here -->
+						</div>
+
 						<!-- User Query Display -->
 						<div class="user-query-section" id="userQuerySection" style="display: none;">
 							<div class="user-query-bubble">
@@ -1309,30 +1357,33 @@
 									attract people's sympathy).
 								</div>
 								<div class="result-text">
-									The concentration of this activity is observed quite strongly in a number of regions
-									such as East Java, West Java, Central Java, South Kalimantan and Yogyakarta.
-									Observers such as M. Najib Azca from PBNU and Muhammad Syauqillah from the
-									University of Indonesia highlighted the pattern of the HTI movement that utilizes
-									the sentiments of the people to attract support for ideologies that are contrary to
-									Pancasila.
+									The activities and spread of HTI's ideology can still be found in certain WhatsApp
+									groups, mosques, and communities that have been infiltrated by its members.
+									According to former HTI member <strong><a href="Fusion%20Profile.html">Solihin Abdul
+											Wahab</a></strong>, there are at least 300-500 former HTI members who remain
+									active in West Java alone. Throughout Indonesia, the estimated number is in the
+									thousands.
 								</div>
 								<div class="result-text">
-									They use symbols such as the tawhid flag and infiltrate the issue of ummah as a
-									strategy to continue to exist in the midst of an official ban. This situation
-									demands vigilance and steps from the government so that the spread of this
-									transnational ideology does not threaten the national consensus.
+									The Indonesian government continues to monitor the activities of former HTI members
+									who are trying to revive the organization. Some former members have joined other
+									Islamic organizations to continue their ideological struggle. At least 11 Islamic
+									organizations are suspected of being infiltrated by former HTI members as part of
+									their strategy to maintain the caliphate ideology.
 								</div>
 							</div>
 
 							<div class="result-section">
-								<h3>Analisis</h3>
+								<h3>Analysis</h3>
 								<div class="result-text">
-									The government has also increased supervision of the activities of community
-									organizations, taklim assemblies, and non-formal education institutions that are
-									indicated to be channels for the spread of radical ideologies. On the other hand,
-									ideological literacy and religious moderation programs continue to be promoted to
-									strengthen people's understanding of the values of Pancasila as the basis of the
-									state.
+									The persistence of HTI's activities post-dissolution demonstrates the organization's
+									resilience and adaptability. Their strategy of infiltrating legitimate Islamic
+									organizations and utilizing digital platforms indicates a sophisticated approach to
+									circumventing government restrictions. The involvement of former high-ranking
+									members
+									like <strong><a href="Fusion%20Profile.html">Ismail Yusanto</a></strong> (former HTI
+									spokesperson) in continuing to spread the ideology through various channels suggests
+									a well-coordinated underground network.
 								</div>
 								<div class="result-text">
 									However, if the government fails to act consistently and firmly, then the space for
@@ -1433,6 +1484,208 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="result-content" id="resultContentPapua" style="display: none;">
+							<div class="result-section">
+								<h3>Title</h3>
+								<div class="result-text">
+									<strong>Young Papuan figure accuses Sebby Sambon of having no education in
+										international humanitarian law</strong>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Facts</h3>
+								<div class="result-text">
+									Otis Tabuni, a young figure from Timika, Central Papua, has strongly criticized
+									Sebby Sambon, spokesperson for the West Papua National Liberation Army - Free Papua
+									Organization (TPNPB-OPM). In his statement on August 6, 2024, Otis considered that
+									Sebby and his group did not understand or ignore the principles of international
+									humanitarian law that should be the basis for armed conflict.
+								</div>
+								<div class="result-text">
+									Otis highlighted a number of TPNPB-OPM actions that he considered to have exceeded
+									the limits of a dignified struggle. He mentioned that attacks on civilians, schools,
+									and health care facilities such as health centers are serious violations of the
+									Geneva Convention. In the law of war, attacks can only be directed against
+									combatants or military parties, not against non-combatants or civilians.
+								</div>
+								<div class="result-text">
+									Otis' statement came as a form of concern over the escalating violence in Papua and
+									the deteriorating image of the armed groups' struggle. He reminded that in any
+									endeavor, including political or independence struggles, universal human values must
+									be upheld. For Otis, losing the moral direction of the struggle will undermine the
+									original goal and exacerbate the suffering of innocent civilians.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Notes</h3>
+								<div class="result-text">
+									The International Committee of the Red Cross (ICRC) should immediately oversee the
+									application of international humanitarian law, provide training and education to
+									parties to the conflict, and conduct humanitarian missions to protect and assist
+									victims of the conflict. Certain groups, such as TPNPB-OPM, could face a strong
+									response from the international community and the Indonesian government if they
+									continue to commit acts that violate humanitarian law, including the possibility of
+									being categorized as terrorist groups or war criminals.
+								</div>
+								<div class="result-text">
+									Similar patterns have occurred elsewhere, such as the conflict in Sri Lanka with the
+									Tamil Tigers, where violations of humanitarian law by armed groups led to massive
+									military operations and significant humanitarian impacts. If violations of
+									international humanitarian law by armed groups are not prevented, the potential
+									impact is increased civilian casualties, human rights violations, and possible
+									international intervention due to conflict escalation.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Source</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference</div>
+									<div><a href="https://www.odiyaiwuu.com/pendidikan-humaniter-internasional/"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://www.odiyaiwuu.com/pendidikan-humaniter-internasional/</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="result-content" id="resultContentGAM" style="display: none;">
+							<div class="result-section">
+								<h3>Title</h3>
+								<div class="result-text">
+									<strong>The Free Aceh Movement or GAM</strong>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Facts</h3>
+								<div class="result-text">
+									The Free Aceh Movement or GAM (<strong>who</strong>) is a separatist organization
+									that aims to separate the Aceh region from the Unitary State of the Republic of
+									Indonesia and establish its own independent state. The movement was founded by
+									Teungku Hasan Muhammad di Tiro, an Acehnese figure who had lived in the United
+									States and was active in international diplomacy.
+								</div>
+								<div class="result-text">
+									GAM was officially declared on December 4, 1976 (<strong>when</strong>), at Mount
+									Halimon, Pidie Regency, Aceh (<strong>where</strong>). Since then, they have
+									operated mainly in the interior and hilly areas of Aceh, trying to garner support
+									and wage resistance against the central government (<strong>how</strong>).
+								</div>
+								<div class="result-text">
+									GAM was triggered by the Acehnese people's dissatisfaction with the central
+									government's unfair exploitation of natural resources, political marginalization and
+									human rights violations (<strong>why</strong>).
+								</div>
+								<div class="result-text">
+									The conflict lasted for a long time and was armed, until it was finally resolved
+									through a negotiation process that resulted in a peace agreement in Helsinki on
+									August 15, 2005 (<strong>how</strong>/conflict closure), which paved the way for
+									peace and reconciliation in Aceh.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Notes</h3>
+								<div class="result-text">
+									The experience of prolonged conflict between GAM and the central government is a
+									reminder of the importance of managing regional aspirations in a fair and
+									transparent manner. Inequalities in resource sharing and a sense of not being heard
+									were the main roots that prolonged the conflict to the point of involving
+									international actors.
+								</div>
+								<div class="result-text">
+									The peace achieved through diplomacy shows that openness to dialogue, recognition of
+									local identities, and restructuring of political and economic systems in
+									conflict-prone areas are key elements in creating long-term stability. However,
+									maintaining peace will require consistent commitment from all parties to ensure that
+									past traumas do not develop into new mistrust, especially amid the social and
+									economic challenges that some Acehnese still face.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Source</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference</div>
+									<div><a href="https://regional.kompas.com/read/2022/03/15/141817678/gerakan-aceh-merdeka-penyebab-kronologi-konflik-dan-kesepakatan-helsinki?page=all"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://regional.kompas.com/read/2022/03/15/141817678/gerakan-aceh-merdeka-penyebab-kronologi-konflik-dan-kesepakatan-helsinki?page=all</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="result-content" id="resultContentKKB" style="display: none;">
+							<div class="result-section">
+								<h3>Title</h3>
+								<div class="result-text">
+									<strong>KKB Shoots Sam Air Plane at Kenyam Airport, Nduga Regency, Papua</strong>
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Facts</h3>
+								<div class="result-text">
+									On Tuesday, June 7, 2022 (<strong>when</strong>), a serious incident occurred at
+									Kenyam Airport, Nduga Regency, Papua (<strong>where</strong>), when a Sam Air plane
+									with registration number PK-SMG was shot at by the Armed Criminal Group (KKB)
+									(<strong>who</strong>) shortly after landing (<strong>what</strong>). The plane was
+									on a food delivery mission from Wamena to Nduga.
+								</div>
+								<div class="result-text">
+									This shooting action was carried out suddenly. About 15 shots were fired from the
+									direction of the airport and hit several important parts of the aircraft, including
+									the fuel tank, front tires, and fuselage (<strong>how</strong>). Luckily, the pilot
+									and copilot survived and were immediately evacuated by joint TNI-Polri security
+									forces who were at the location.
+								</div>
+								<div class="result-text">
+									The motive for the attack has not been explained with certainty, but it is strongly
+									suspected as a form of terror to show the existence and influence of the KKB in the
+									conflict area (<strong>why</strong>). This attack also symbolizes the threat to
+									aviation security and logistics distribution to remote areas of Papua.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Notes</h3>
+								<div class="result-text">
+									The government through the joint TNI-Polri apparatus has taken a number of
+									preventive measures. Security around Kenyam Airport was tightened and routine
+									patrols were increased to prevent similar incidents. The evacuation of the airplane
+									crew was also carried out quickly, accompanied by an investigation into the
+									perpetrators and the pattern of the attack.
+								</div>
+								<div class="result-text">
+									However, if the government does not take consistent and comprehensive follow-up
+									actions, the security situation in Papua risks worsening. The KKB could become more
+									confident in carrying out attacks, even against civilian objects such as airplanes
+									or other public facilities. This will not only cause casualties, but also
+									potentially trigger a humanitarian crisis in a region that is highly dependent on
+									air routes for the distribution of aid and basic necessities.
+								</div>
+								<div class="result-text">
+									Without firm prevention, the armed conflict in Papua could continue to escalate and
+									add to the burden on national security and international attention to human rights
+									issues in Indonesia.
+								</div>
+							</div>
+
+							<div class="result-section">
+								<h3>Source</h3>
+								<div class="intelligence-ref">
+									<div class="intelligence-id">Source Reference</div>
+									<div><a href="https://www.liputan6.com/news/read/4980799/kkb-tembak-pesawat-sam-air-di-bandara-kenyam-kabupaten-nduga-papua"
+											target="_blank"
+											style="color: #6fa8dc; text-decoration: none;">https://www.liputan6.com/news/read/4980799/kkb-tembak-pesawat-sam-air-di-bandara-kenyam-kabupaten-nduga-papua</a>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<!-- Attachment Previews -->
@@ -1446,413 +1699,38 @@
 							placeholder="What are you looking for?"></textarea>
 					</div>
 
-					<!-- Buttons zxc-->
+					<!-- Button Container -->
 					<div class="button-container">
-						<button class="file-upload-btn" onclick="document.getElementById('fileInput').click()"
-							title="Attach files">
-							<!-- <span class="attach-file-custom"> attach_file </span> -->
-							<span class="material-symbols-outlined">attach_file</span>
+						<button class="file-upload-btn" id="fileUploadBtn">
+							<span class="attach-file-custom">attach_file</span>
 						</button>
-						<input type="file" id="fileInput" class="file-input" multiple
-							accept="image/*,application/pdf,.doc,.docx,.txt">
-						<button class="send-button" id="sendButton" onclick="submitQuery()" title="Send message">
-							<!-- <span style="transform: rotate(45deg); display: inline-block;">↗</span> -->
-							<span class="send-custom"> send </span>
+						<input type="file" id="fileInput" class="file-input" multiple />
+						<button class="send-button" id="sendButton" onclick="submitQuery()">
+							<span class="send-custom">send</span>
 						</button>
 					</div>
 
-					<!-- Mode Selection and Categories in one row -->
-					<div class="mode-selection">
+					<!-- Mode and Category Selection -->
+					<div class="mode-selection" style="visibility: hidden;">
 						<div class="tag-container">
-							<div class="mode-tag prescriptive active" data-mode="prescriptive"
-								onclick="selectMode('prescriptive')">
-								Prescriptive
-							</div>
-							<div class="mode-tag predictive" data-mode="predictive" onclick="selectMode('predictive')">
-								Predictive
-							</div>
-							<div class="category-tag-inline" data-category="counterintelligence"
-								onclick="toggleCategoryInline(this)">
-								Counterintelligence
-							</div>
-							<div class="category-tag-inline" data-category="counter-terrorism"
-								onclick="toggleCategoryInline(this)">
-								Counter-Terrorism
-							</div>
-							<div class="category-tag-inline" data-category="anti-secession"
-								onclick="toggleCategoryInline(this)">
-								Anti-Secession
-							</div>
-							<div class="category-tag-inline" data-category="counter-infiltration"
-								onclick="toggleCategoryInline(this)">
-								Counter-Infiltration
-							</div>
+							<span class="mode-tag prescriptive active" id="prescriptiveMode"
+								onclick="toggleMode('prescriptive')">Prescriptive</span>
+							<span class="mode-tag predictive" id="predictiveMode"
+								onclick="toggleMode('predictive')">Predictive</span>
+							<span style="margin: 0 10px; color: #ccc;">|</span>
+							<span class="category-tag-inline" data-category="counterintelligence"
+								onclick="toggleCategoryInline(this)">Counterintelligence</span>
+							<span class="category-tag-inline" data-category="counter-terrorism"
+								onclick="toggleCategoryInline(this)">Counter-Terrorism</span>
+							<span class="category-tag-inline" data-category="anti-secession"
+								onclick="toggleCategoryInline(this)">Anti-Secession</span>
+							<span class="category-tag-inline" data-category="counter-infiltration"
+								onclick="toggleCategoryInline(this)">Counter-Infiltration</span>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<script>
-				const prescriptiveCategories = ['counterintelligence', 'counter-terrorism', 'anti-secession', 'counter-infiltration'];
-				const predictiveCategories = ['espionage', 'terrorism', 'sectarian', 'infiltration'];
-
-				let selectedFiles = [];
-				let currentMode = 'prescriptive';
-				let isProcessing = false;
-
-				// Select mode function
-				function selectMode(mode) {
-					currentMode = mode;
-
-					// Update mode tags
-					document.querySelectorAll('.mode-tag').forEach(tag => {
-						tag.classList.remove('active');
-					});
-					document.querySelector(`.mode-tag.${mode}`).classList.add('active');
-
-					updateCategoriesForMode(mode);
-					updateTextAreaForMode(mode);
-				}
-
-				// Update categories based on mode
-				function updateCategoriesForMode(mode) {
-					const categoryTags = document.querySelectorAll('.category-tag-inline');
-
-					if (mode === 'predictive') {
-						// Update category labels for predictive mode
-						categoryTags[0].textContent = 'Espionage';
-						categoryTags[0].setAttribute('data-category', 'espionage');
-						categoryTags[1].textContent = 'Terrorism';
-						categoryTags[1].setAttribute('data-category', 'terrorism');
-						categoryTags[2].textContent = 'Sectarian';
-						categoryTags[2].setAttribute('data-category', 'sectarian');
-						categoryTags[3].textContent = 'Infiltration';
-						categoryTags[3].setAttribute('data-category', 'infiltration');
-					} else {
-						// Update category labels for prescriptive mode
-						categoryTags[0].textContent = 'Counterintelligence';
-						categoryTags[0].setAttribute('data-category', 'counterintelligence');
-						categoryTags[1].textContent = 'Counter-Terrorism';
-						categoryTags[1].setAttribute('data-category', 'counter-terrorism');
-						categoryTags[2].textContent = 'Anti-Secession';
-						categoryTags[2].setAttribute('data-category', 'anti-secession');
-						categoryTags[3].textContent = 'Counter-Infiltration';
-						categoryTags[3].setAttribute('data-category', 'counter-infiltration');
-					}
-
-					// Clear all active states
-					categoryTags.forEach(tag => tag.classList.remove('active'));
-				}
-
-				// Update textarea content based on mode
-				function updateTextAreaForMode(mode) {
-					const textarea = document.getElementById('questionInput');
-					if (mode === 'predictive') {
-						textarea.placeholder = 'What are you looking for?';
-						textarea.value = '';
-					} else {
-						textarea.placeholder = 'What are you looking for?';
-						textarea.value = '';
-					}
-				}
-
-				// Toggle category selection
-				function toggleCategoryInline(tag) {
-					tag.classList.toggle('active');
-				}
-
-				// File upload handling
-				const fileInput = document.getElementById('fileInput');
-				const attachmentPreviews = document.getElementById('attachmentPreviews');
-
-				fileInput.addEventListener('change', (e) => {
-					handleFiles(e.target.files);
-				});
-
-				function handleFiles(files) {
-					Array.from(files).forEach(file => {
-						selectedFiles.push(file);
-						createAttachmentPreview(file);
-					});
-				}
-
-				function createAttachmentPreview(file) {
-					const preview = document.createElement('div');
-					preview.className = 'attachment-preview';
-
-					const removeBtn = document.createElement('button');
-					removeBtn.className = 'remove-btn';
-					removeBtn.innerHTML = '×';
-					removeBtn.onclick = (e) => {
-						e.stopPropagation();
-						removeAttachment(file, preview);
-					};
-
-					// Determine file type and create appropriate preview
-					if (file.type.startsWith('image/')) {
-						preview.classList.add('image-preview');
-						const img = document.createElement('img');
-						const reader = new FileReader();
-						reader.onload = (e) => {
-							img.src = e.target.result;
-						};
-						reader.readAsDataURL(file);
-						preview.appendChild(img);
-					} else {
-						// Add file type icon container
-						const iconContainer = document.createElement('div');
-						iconContainer.className = 'file-icon';
-
-						if (file.type.includes('pdf')) {
-							const pdfIcon = document.createElement('div');
-							pdfIcon.className = 'pdf-icon';
-
-							const pdfLabel = document.createElement('div');
-							pdfLabel.className = 'pdf-label';
-							pdfLabel.textContent = 'PDF';
-
-							iconContainer.appendChild(pdfIcon);
-							iconContainer.appendChild(pdfLabel);
-						} else if (file.type.includes('doc')) {
-							const docIcon = document.createElement('div');
-							docIcon.className = 'doc-icon';
-
-							const docLabel = document.createElement('div');
-							docLabel.className = 'doc-label';
-							docLabel.textContent = 'DOC';
-
-							iconContainer.appendChild(docIcon);
-							iconContainer.appendChild(docLabel);
-						} else {
-							const defaultIcon = document.createElement('div');
-							defaultIcon.className = 'default-icon';
-
-							const defaultLabel = document.createElement('div');
-							defaultLabel.className = 'default-label';
-							defaultLabel.textContent = 'FILE';
-
-							iconContainer.appendChild(defaultIcon);
-							iconContainer.appendChild(defaultLabel);
-						}
-
-						preview.appendChild(iconContainer);
-					}
-
-					preview.appendChild(removeBtn);
-					preview.title = file.name;
-					attachmentPreviews.appendChild(preview);
-				}
-
-				function removeAttachment(file, previewElement) {
-					selectedFiles = selectedFiles.filter(f => f !== file);
-					previewElement.remove();
-				}
-
-				// Submit query function with animation
-				function submitQuery() {
-					if (isProcessing) return;
-
-					const question = document.getElementById('questionInput').value.trim();
-					/* if (!question) {
-						alert('Please enter a question before submitting.');
-						return;
-					} */
-					isProcessing = true;
-					const sendButton = document.getElementById('sendButton');
-					sendButton.disabled = true;
-
-					// Show results section
-					const resultsSection = document.getElementById('resultsSection');
-					resultsSection.classList.add('show');
-
-					// Reset all status elements
-					hideAllStatusElements();
-					document.getElementById('greetings').style.display = 'none';
-					// Start the simulation
-					simulateProcessing();
-				}
-
-				function hideAllStatusElements() {
-					document.getElementById('userQuerySection').style.display = 'none';
-					document.getElementById('searchStatus').style.display = 'none';
-					document.getElementById('queryInfo').style.display = 'none';
-					document.getElementById('thinkingIndicator').style.display = 'none';
-					document.getElementById('aiStatus').style.display = 'none';
-					document.getElementById('resultContent').style.display = 'none';
-					document.getElementById('resultContentUrl').style.display = 'none';
-				}
-
-				function displayUserQuery(question, files) {
-					const userQuerySection = document.getElementById('userQuerySection');
-					const displayedQuery = document.getElementById('displayedQuery');
-					const displayedAttachments = document.getElementById('displayedAttachments');
-
-					// Display the query text
-					displayedQuery.textContent = question;
-
-					// Display attachments if any
-					displayedAttachments.innerHTML = '';
-					if (files && files.length > 0) {
-						files.forEach(file => {
-							const attachmentPreview = createSmallAttachmentPreview(file);
-							displayedAttachments.appendChild(attachmentPreview);
-						});
-					}
-
-					// Show the query section
-					userQuerySection.style.display = 'block';
-				}
-
-				function createSmallAttachmentPreview(file) {
-					const preview = document.createElement('div');
-					preview.className = 'query-attachment-preview';
-					preview.title = file.name;
-
-					if (file.type.startsWith('image/')) {
-						preview.classList.add('image-preview-small');
-						const img = document.createElement('img');
-						const reader = new FileReader();
-						reader.onload = (e) => {
-							img.src = e.target.result;
-						};
-						reader.readAsDataURL(file);
-						preview.appendChild(img);
-					} else {
-						const iconContainer = document.createElement('div');
-						iconContainer.className = 'file-icon-small';
-
-						if (file.type.includes('pdf')) {
-							const pdfIcon = document.createElement('div');
-							pdfIcon.className = 'pdf-icon-small';
-
-							const pdfLabel = document.createElement('div');
-							pdfLabel.className = 'pdf-label-small';
-							pdfLabel.textContent = 'PDF';
-
-							iconContainer.appendChild(pdfIcon);
-							iconContainer.appendChild(pdfLabel);
-						} else if (file.type.includes('doc')) {
-							const docIcon = document.createElement('div');
-							docIcon.className = 'doc-icon-small';
-
-							const docLabel = document.createElement('div');
-							docLabel.className = 'doc-label-small';
-							docLabel.textContent = 'DOC';
-
-							iconContainer.appendChild(docIcon);
-							iconContainer.appendChild(docLabel);
-						} else {
-							const defaultIcon = document.createElement('div');
-							defaultIcon.className = 'default-icon-small';
-
-							const defaultLabel = document.createElement('div');
-							defaultLabel.className = 'default-label-small';
-							defaultLabel.textContent = 'FILE';
-
-							iconContainer.appendChild(defaultIcon);
-							iconContainer.appendChild(defaultLabel);
-						}
-
-						preview.appendChild(iconContainer);
-					}
-
-					return preview;
-				}
-
-				function simulateProcessing() {
-					const question = document.getElementById('questionInput').value.trim();
-
-					// Step 0: Display user query and attachments immediately
-					displayUserQuery(question, selectedFiles);
-					selectedFiles = [];
-					questionInput.value = '';
-					// Step 1: Show search completed
-					setTimeout(() => {
-						document.getElementById('searchStatus').style.display = 'flex';
-					}, 800);
-
-					// Step 2: Show query info
-					setTimeout(() => {
-						document.getElementById('queryInfo').style.display = 'block';
-					}, 1300);
-
-					// Step 3: Show thinking indicator
-					setTimeout(() => {
-						document.getElementById('thinkingIndicator').style.display = 'flex';
-					}, 1800);
-
-					// Step 4: Hide thinking and show AI completed
-					setTimeout(() => {
-						document.getElementById('thinkingIndicator').style.display = 'none';
-						document.getElementById('aiStatus').style.display = 'flex';
-					}, 4300);
-
-					// Step 5: Show results and focus on them
-					setTimeout(() => {
-						// document.getElementById('resultContent').style.display = 'block';
-
-						const urlRegex = /(https?:\/\/[^\s]+)/g;
-						if (urlRegex.test(question)) {
-							const urls = question.match(urlRegex);
-							document.getElementById('resultContentUrl').style.display = 'block';
-							const resultsSection = document.getElementById('resultsSectionUrl');
-						}
-						else {
-							document.getElementById('resultContent').style.display = 'block';
-							const resultsSection = document.getElementById('resultsSection');
-
-						}
-
-						// Scroll results section to top to show all content
-						resultsSection.scrollTop = 0;
-
-						// Scroll page to results section for better focus
-						resultsSection.scrollIntoView({
-							behavior: 'smooth',
-							block: 'start'
-						});
-
-						// Re-enable send button
-						const sendButton = document.getElementById('sendButton');
-						sendButton.disabled = false;
-						isProcessing = false;
-					}, 4800);
-				}
-
-				// Initialize on page load
-				document.addEventListener('DOMContentLoaded', function () {
-					updateTextAreaForMode('prescriptive');
-				});
-
-				// Drag and drop functionality for the entire textarea area
-				const textareaContainer = document.querySelector('.text-area-container');
-
-				textareaContainer.addEventListener('dragover', (e) => {
-					e.preventDefault();
-					textareaContainer.style.borderColor = '#6fa8dc';
-					textareaContainer.style.backgroundColor = '#f8f9ff';
-				});
-
-				textareaContainer.addEventListener('dragleave', (e) => {
-					e.preventDefault();
-					textareaContainer.style.borderColor = '';
-					textareaContainer.style.backgroundColor = '';
-				});
-
-				textareaContainer.addEventListener('drop', (e) => {
-					e.preventDefault();
-					textareaContainer.style.borderColor = '';
-					textareaContainer.style.backgroundColor = '';
-
-					const files = e.dataTransfer.files;
-					handleFiles(files);
-				});
-			</script>
-
-
 		</div>
-
-
 
 		<!-- Unnamed (组 合) -->
 		<div id="u256" class="ax_default" data-left="264" data-top="76" data-width="120" data-height="24">
@@ -1889,24 +1767,750 @@
 		</div>
 
 		<!-- Unnamed (矩形) -->
-		<div id="u262" class="ax_default label" title="Has there been a terrorist attack in area A in 2023">
+		<div id="u262" class="ax_default label" title="Who is Young Papuan figure?">
 			<div id="u262_div" class=""></div>
-			<div id="u262_text" class="text ">
-				<p><span>Has there been a terrorist attack…</span></p>
+			<div id="u262_text" class="text " onclick="loadConversation(1)">
+				<p><span id="history-item-1" title="Who is Young Papuan figure?">Young Papuan figure</span></p>
 			</div>
 		</div>
 
 		<!-- Unnamed (矩形) -->
+
 		<div id="u263" class="ax_default label">
 			<div id="u263_div" class=""></div>
-			<div id="u263_text" class="text ">
-				<p><span>Was Area A safe in 2023</span></p>
+			<div id="u263_text" class="text " onclick="loadConversation(2)">
+				<p><span id="history-item-2" title="">Sam Air plane incident Kenyam Airport...</span></p>
+			</div>
+		</div>
+
+		<div id="u262" class="ax_default label" style="top: 250px !important;">
+			<div id="u262_div" class=""></div>
+			<div id="u262_text" class="text " onclick="loadConversation(3)">
+				<p><span id="history-item-3" title="Information about separatist move...">Information about separatist
+						movem...</span></p>
 			</div>
 		</div>
 
 
 	</div>
+	<script>
+		// Global variables
+		let selectedFiles = [];
+		let isProcessing = false;
+		let conversationHistory = [];
+		let currentResultContent = '';
+		const storedConversations = {
+			1: {
+				question: "Who is Young Papuan figure?",
+				attachments: [],
+				response: null // Will use resultContent
+			},
+			2: {
+				question: "What happened to the Sam Air plane in Kenyam Airport, Papua?",
+				attachments: [],
+				response: null // Will use resultContentKKB
+			},
+			3: {
+				question: "Information about separatist movements in Aceh Indonesia",
+				attachments: [],
+				response: null // Will use resultContentGAM
+			}
+		};
 
+		// Upload button click handler
+		document.getElementById('fileUploadBtn').addEventListener('click', function () {
+			document.getElementById('fileInput').click();
+		});
+
+		// Toggle mode (Prescriptive/Predictive)
+		function toggleMode(mode) {
+			const prescriptiveMode = document.getElementById('prescriptiveMode');
+			const predictiveMode = document.getElementById('predictiveMode');
+			const categoryTags = document.querySelectorAll('.category-tag-inline');
+
+			if (mode === 'prescriptive') {
+				prescriptiveMode.classList.add('active');
+				predictiveMode.classList.remove('active');
+
+				// Update category labels for prescriptive mode
+				categoryTags[0].textContent = 'Counterintelligence';
+				categoryTags[0].setAttribute('data-category', 'counterintelligence');
+				categoryTags[1].textContent = 'Counter-Terrorism';
+				categoryTags[1].setAttribute('data-category', 'counter-terrorism');
+				categoryTags[2].textContent = 'Anti-Secession';
+				categoryTags[2].setAttribute('data-category', 'anti-secession');
+				categoryTags[3].textContent = 'Counter-Infiltration';
+				categoryTags[3].setAttribute('data-category', 'counter-infiltration');
+			} else {
+				predictiveMode.classList.add('active');
+				prescriptiveMode.classList.remove('active');
+
+				// If predictive mode category labels are different, update them here
+				categoryTags[0].textContent = 'Espionage';
+				categoryTags[0].setAttribute('data-category', 'espionage');
+				categoryTags[1].textContent = 'Terrorism';
+				categoryTags[1].setAttribute('data-category', 'terrorism');
+				categoryTags[2].textContent = 'Sectarian';
+				categoryTags[2].setAttribute('data-category', 'sectarian');
+				categoryTags[3].textContent = 'Infiltration';
+				categoryTags[3].setAttribute('data-category', 'infiltration');
+			}
+
+			// Clear all active states
+			categoryTags.forEach(tag => tag.classList.remove('active'));
+		}
+		document.getElementById('u68').addEventListener('click', function () {
+			startNewConversation();
+		});
+		function startNewConversation() {
+			// Clear current conversation
+			conversationHistory = [];
+			currentConversationId = null;
+
+			// Clear conversation display
+			document.getElementById('conversationHistory').innerHTML = '';
+
+			// Hide results section
+			document.getElementById('resultsSection').classList.remove('show');
+
+			// Show greeting
+			document.getElementById('greetings').style.display = 'block';
+
+			// Clear input
+			document.getElementById('questionInput').value = '';
+
+			// Clear attachments
+			selectedFiles = [];
+			document.getElementById('attachmentPreviews').innerHTML = '';
+
+			// Remove active state from history items
+			document.querySelectorAll('.history-item').forEach(item => {
+				item.classList.remove('active');
+			});
+
+			// Reset all status elements
+			hideAllStatusElements();
+		}
+
+		// Update textarea content based on mode
+		function updateTextAreaForMode(mode) {
+			const textarea = document.getElementById('questionInput');
+			if (mode === 'predictive') {
+				textarea.placeholder = 'What are you looking for?';
+				textarea.value = '';
+			} else {
+				textarea.placeholder = 'What are you looking for?';
+				textarea.value = '';
+			}
+		}
+
+		// Toggle category selection
+		function toggleCategoryInline(tag) {
+			tag.classList.toggle('active');
+		}
+
+		// File upload handling
+		const fileInput = document.getElementById('fileInput');
+		const attachmentPreviews = document.getElementById('attachmentPreviews');
+
+		fileInput.addEventListener('change', (e) => {
+			handleFiles(e.target.files);
+		});
+
+		function handleFiles(files) {
+			Array.from(files).forEach(file => {
+				selectedFiles.push(file);
+				createAttachmentPreview(file);
+			});
+		}
+
+		function createAttachmentPreview(file) {
+			const preview = document.createElement('div');
+			preview.className = 'attachment-preview';
+
+			const removeBtn = document.createElement('button');
+			removeBtn.className = 'remove-btn';
+			removeBtn.innerHTML = '×';
+			removeBtn.onclick = (e) => {
+				e.stopPropagation();
+				removeAttachment(file, preview);
+			};
+
+			// Determine file type and create appropriate preview
+			if (file.type.startsWith('image/')) {
+				preview.classList.add('image-preview');
+				const img = document.createElement('img');
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					img.src = e.target.result;
+				};
+				reader.readAsDataURL(file);
+				preview.appendChild(img);
+			} else {
+				// Add file type icon container
+				const iconContainer = document.createElement('div');
+				iconContainer.className = 'file-icon';
+
+				if (file.type.includes('pdf')) {
+					const pdfIcon = document.createElement('div');
+					pdfIcon.className = 'pdf-icon';
+
+					const pdfLabel = document.createElement('div');
+					pdfLabel.className = 'pdf-label';
+					pdfLabel.textContent = 'PDF';
+
+					iconContainer.appendChild(pdfIcon);
+					iconContainer.appendChild(pdfLabel);
+				} else if (file.type.includes('doc')) {
+					const docIcon = document.createElement('div');
+					docIcon.className = 'doc-icon';
+
+					const docLabel = document.createElement('div');
+					docLabel.className = 'doc-label';
+					docLabel.textContent = 'DOC';
+
+					iconContainer.appendChild(docIcon);
+					iconContainer.appendChild(docLabel);
+				} else {
+					const defaultIcon = document.createElement('div');
+					defaultIcon.className = 'default-icon';
+
+					const defaultLabel = document.createElement('div');
+					defaultLabel.className = 'default-label';
+					defaultLabel.textContent = 'FILE';
+
+					iconContainer.appendChild(defaultIcon);
+					iconContainer.appendChild(defaultLabel);
+				}
+
+				preview.appendChild(iconContainer);
+			}
+
+			preview.appendChild(removeBtn);
+			preview.title = file.name;
+			attachmentPreviews.appendChild(preview);
+		}
+
+		function removeAttachment(file, previewElement) {
+			selectedFiles = selectedFiles.filter(f => f !== file);
+			previewElement.remove();
+		}
+
+		// City name change functionality
+		function checkForCityNameChange(question) {
+			// Pattern to match "Tolong ubah [city] menjadi [city]"
+			const cityChangePattern = /tolong ubah\s+(.+?)\s+menjadi\s+(.+)/i;
+			const match = question.match(cityChangePattern);
+
+			if (match && conversationHistory.length > 0) {
+				const oldCity = match[1].trim();
+				const newCity = match[2].trim();
+
+				// Get the last conversation response
+				const lastConversation = conversationHistory[conversationHistory.length - 1];
+
+				// Replace city names in the last response
+				const updatedContent = lastConversation.response.replace(new RegExp(oldCity, 'gi'), newCity);
+
+				return {
+					isCityChange: true,
+					oldCity: oldCity,
+					newCity: newCity,
+					updatedContent: updatedContent
+				};
+			}
+
+			return { isCityChange: false };
+		}
+
+		// Word document generation functionality
+		function checkForWordDocumentRequest(question) {
+			// Pattern to match "Generate document dalam bentuk word" or similar
+			const wordDocPattern = /generate\s+document\s+dalam\s+bentuk\s+word/i;
+			return wordDocPattern.test(question);
+		}
+
+		// Generate Word document from content
+		function generateWordDocument(content) {
+			// Simple Word document generation (creates a download link)
+			const htmlContent = `
+				<html xmlns:o='urn:schemas-microsoft-com:office:office' 
+					  xmlns:w='urn:schemas-microsoft-com:office:word'
+					  xmlns='http://www.w3.org/TR/REC-html40'>
+				<head>
+					<meta charset='utf-8'>
+					<title>Fusion AI Report</title>
+				</head>
+				<body>
+					${content}
+				</body>
+				</html>
+			`;
+
+			const blob = new Blob(['\ufeff', htmlContent], {
+				type: 'application/msword'
+			});
+
+			const url = URL.createObjectURL(blob);
+			const filename = `FusionAI_Report_${new Date().getTime()}.doc`;
+
+			return { url, filename };
+		}
+
+		// Submit query function with animation
+		function submitQuery() {
+			if (isProcessing) return;
+
+			const question = document.getElementById('questionInput').value.trim();
+
+			// Check for city name change request
+			const cityChangeResult = checkForCityNameChange(question);
+
+			// Check for Word document request
+			const isWordDocRequest = checkForWordDocumentRequest(question);
+
+			isProcessing = true;
+			const sendButton = document.getElementById('sendButton');
+			sendButton.disabled = true;
+
+			// Show results section
+			const resultsSection = document.getElementById('resultsSection');
+			resultsSection.classList.add('show');
+
+			// Reset all status elements
+			hideAllStatusElements();
+			document.getElementById('greetings').style.display = 'none';
+
+			// Clear attachment previews after submission
+			const attachmentPreviews = document.getElementById('attachmentPreviews');
+			attachmentPreviews.innerHTML = '';
+
+			// Start the simulation based on request type
+			if (cityChangeResult.isCityChange) {
+				simulateCityChangeProcessing(cityChangeResult);
+				return; // Important: stop here for city change
+			} else if (isWordDocRequest) {
+				simulateWordDocumentProcessing();
+				return; // Important: stop here for word document
+			} else {
+				simulateProcessing();
+			}
+		}
+
+		function hideAllStatusElements() {
+			// Don't hide user query sections in conversation history - they should remain visible
+
+			// Hide current status elements only
+			document.getElementById('userQuerySection').style.display = 'none';
+			document.getElementById('searchStatus').style.display = 'none';
+			document.getElementById('queryInfo').style.display = 'none';
+			document.getElementById('thinkingIndicator').style.display = 'none';
+			document.getElementById('aiStatus').style.display = 'none';
+			document.getElementById('resultContent').style.display = 'none';
+			document.getElementById('resultContentUrl').style.display = 'none';
+		}
+
+		function displayUserQuery(question, files) {
+			const userQuerySection = document.getElementById('userQuerySection');
+			const displayedQuery = document.getElementById('displayedQuery');
+			const displayedAttachments = document.getElementById('displayedAttachments');
+
+			// Display the query text
+			displayedQuery.textContent = question;
+
+			// Display attachments if any
+			displayedAttachments.innerHTML = '';
+			if (files && files.length > 0) {
+				files.forEach(file => {
+					const attachmentPreview = createSmallAttachmentPreview(file);
+					displayedAttachments.appendChild(attachmentPreview);
+				});
+			}
+
+			// Show the query section
+			userQuerySection.style.display = 'block';
+		}
+
+		function createSmallAttachmentPreview(file) {
+			const preview = document.createElement('div');
+			preview.className = 'query-attachment-preview';
+			preview.title = file.name;
+
+			if (file.type.startsWith('image/')) {
+				preview.classList.add('image-preview-small');
+				const img = document.createElement('img');
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					img.src = e.target.result;
+				};
+				reader.readAsDataURL(file);
+				preview.appendChild(img);
+			} else {
+				const iconContainer = document.createElement('div');
+				iconContainer.className = 'file-icon-small';
+
+				if (file.type.includes('pdf')) {
+					const pdfIcon = document.createElement('div');
+					pdfIcon.className = 'pdf-icon-small';
+
+					const pdfLabel = document.createElement('div');
+					pdfLabel.className = 'pdf-label-small';
+					pdfLabel.textContent = 'PDF';
+
+					iconContainer.appendChild(pdfIcon);
+					iconContainer.appendChild(pdfLabel);
+				} else if (file.type.includes('doc')) {
+					const docIcon = document.createElement('div');
+					docIcon.className = 'doc-icon-small';
+
+					const docLabel = document.createElement('div');
+					docLabel.className = 'doc-label-small';
+					docLabel.textContent = 'DOC';
+
+					iconContainer.appendChild(docIcon);
+					iconContainer.appendChild(docLabel);
+				} else {
+					const defaultIcon = document.createElement('div');
+					defaultIcon.className = 'default-icon-small';
+
+					const defaultLabel = document.createElement('div');
+					defaultLabel.className = 'default-label-small';
+					defaultLabel.textContent = 'FILE';
+
+					iconContainer.appendChild(defaultIcon);
+					iconContainer.appendChild(defaultLabel);
+				}
+
+				preview.appendChild(iconContainer);
+			}
+
+			return preview;
+		}
+
+		// Add conversation to history
+		function addToConversationHistory(question, response, attachments = []) {
+			conversationHistory.push({
+				question: question,
+				response: response,
+				attachments: attachments,
+				timestamp: new Date()
+			});
+		}
+
+		// Display conversation item
+		function displayConversationItem(item) {
+			const conversationDiv = document.createElement('div');
+			conversationDiv.className = 'conversation-item';
+
+			// User query
+			const userQueryDiv = document.createElement('div');
+			userQueryDiv.className = 'user-query-section';
+			userQueryDiv.style.display = 'block'; // Ensure it's visible
+
+			const userQueryBubble = document.createElement('div');
+			userQueryBubble.className = 'user-query-bubble';
+
+			const queryText = document.createElement('div');
+			queryText.className = 'query-text';
+			queryText.textContent = item.question;
+			userQueryBubble.appendChild(queryText);
+
+			// Add attachments if any
+			if (item.attachments && item.attachments.length > 0) {
+				const attachmentsDiv = document.createElement('div');
+				attachmentsDiv.className = 'query-attachments';
+
+				item.attachments.forEach(file => {
+					const attachmentPreview = createSmallAttachmentPreview(file);
+					attachmentsDiv.appendChild(attachmentPreview);
+				});
+
+				userQueryBubble.appendChild(attachmentsDiv);
+			}
+
+			userQueryDiv.appendChild(userQueryBubble);
+
+			// AI response
+			const responseDiv = document.createElement('div');
+			responseDiv.className = 'result-content';
+			responseDiv.style.display = 'block';
+			responseDiv.innerHTML = item.response;
+
+			conversationDiv.appendChild(userQueryDiv);
+			conversationDiv.appendChild(responseDiv);
+
+			return conversationDiv;
+		}
+
+		// City change processing simulation
+		function simulateCityChangeProcessing(cityChangeResult) {
+			const question = document.getElementById('questionInput').value.trim();
+
+			// Clear input immediately
+			document.getElementById('questionInput').value = '';
+
+			// Show processing steps
+			setTimeout(() => {
+				document.getElementById('searchStatus').style.display = 'flex';
+			}, 800);
+
+			setTimeout(() => {
+				document.getElementById('queryInfo').style.display = 'block';
+				document.getElementById('queryInfo').textContent = `Changing "${cityChangeResult.oldCity}" to "${cityChangeResult.newCity}" in previous response...`;
+			}, 1300);
+
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'flex';
+			}, 1800);
+
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'none';
+				document.getElementById('aiStatus').style.display = 'flex';
+			}, 3300);
+
+			setTimeout(() => {
+				// Add to conversation history
+				addToConversationHistory(question, cityChangeResult.updatedContent, []);
+
+				// Display in conversation history
+				const historyContainer = document.getElementById('conversationHistory');
+				const conversationItem = conversationHistory[conversationHistory.length - 1];
+				historyContainer.appendChild(displayConversationItem(conversationItem));
+
+				// Hide all status elements after adding to history
+				hideAllStatusElements();
+
+				// Scroll to show new content
+				const resultsSection = document.getElementById('resultsSection');
+				resultsSection.scrollTop = resultsSection.scrollHeight;
+
+				// Re-enable send button
+				const sendButton = document.getElementById('sendButton');
+				sendButton.disabled = false;
+				isProcessing = false;
+			}, 3800);
+		}
+
+		// Word document processing simulation
+		function simulateWordDocumentProcessing() {
+			const question = document.getElementById('questionInput').value.trim();
+
+			// Clear input immediately
+			document.getElementById('questionInput').value = '';
+
+			// Show processing steps
+			setTimeout(() => {
+				document.getElementById('searchStatus').style.display = 'flex';
+			}, 800);
+
+			setTimeout(() => {
+				document.getElementById('queryInfo').style.display = 'block';
+				document.getElementById('queryInfo').textContent = 'Generating Word document from previous response...';
+			}, 1300);
+
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'flex';
+			}, 1800);
+
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'none';
+				document.getElementById('aiStatus').style.display = 'flex';
+			}, 3300);
+
+			setTimeout(() => {
+				if (conversationHistory.length > 0) {
+					const lastConversation = conversationHistory[conversationHistory.length - 1];
+					const wordDoc = generateWordDocument(lastConversation.response);
+
+					// Create response with download button
+					const responseContent = `
+						<div class="result-section">
+							<h3>Document Generated</h3>
+							<div class="result-text">
+								Your document has been successfully generated from the previous response.
+							</div>
+							<button class="download-doc-btn" onclick="window.open('${wordDoc.url}', '_blank')">
+								<span class="material-symbols-outlined">download</span>
+								Download ${wordDoc.filename}
+							</button>
+						</div>
+					`;
+
+					// Add to conversation history
+					addToConversationHistory(question, responseContent, []);
+
+					// Display in conversation history
+					const historyContainer = document.getElementById('conversationHistory');
+					const conversationItem = conversationHistory[conversationHistory.length - 1];
+					historyContainer.appendChild(displayConversationItem(conversationItem));
+				}
+
+				// Hide all status elements after adding to history
+				hideAllStatusElements();
+
+				// Scroll to show new content
+				const resultsSection = document.getElementById('resultsSection');
+				resultsSection.scrollTop = resultsSection.scrollHeight;
+
+				// Re-enable send button
+				const sendButton = document.getElementById('sendButton');
+				sendButton.disabled = false;
+				isProcessing = false;
+			}, 3800);
+		}
+
+		function simulateProcessing() {
+			const question = document.getElementById('questionInput').value.trim();
+
+			// Clear input and save files immediately
+			const currentFiles = [...selectedFiles];
+			selectedFiles = [];
+			document.getElementById('questionInput').value = '';
+
+			// Step 1: Show search completed
+			setTimeout(() => {
+				document.getElementById('searchStatus').style.display = 'flex';
+			}, 800);
+
+			// Step 2: Show query info
+			setTimeout(() => {
+				document.getElementById('queryInfo').style.display = 'block';
+			}, 1300);
+
+			// Step 3: Show thinking indicator
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'flex';
+			}, 1800);
+
+			// Step 4: Hide thinking and show AI completed
+			setTimeout(() => {
+				document.getElementById('thinkingIndicator').style.display = 'none';
+				document.getElementById('aiStatus').style.display = 'flex';
+			}, 4300);
+
+			// Step 5: Show results and focus on them
+			setTimeout(() => {
+				let responseContent = '';
+				const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+				// Get the appropriate response content but DON'T display the original elements
+				if (urlRegex.test(question)) {
+					responseContent = document.getElementById('resultContentUrl').innerHTML;
+				} else {
+					responseContent = document.getElementById('resultContent').innerHTML;
+				}
+
+				// Add to conversation history with attachments
+				addToConversationHistory(question, responseContent, currentFiles);
+
+				// Add conversation item to history display
+				const historyContainer = document.getElementById('conversationHistory');
+				const conversationItem = conversationHistory[conversationHistory.length - 1];
+				historyContainer.appendChild(displayConversationItem(conversationItem));
+
+				// Hide all status elements after adding to history
+				hideAllStatusElements();
+
+				// Scroll to show new content
+				const resultsSection = document.getElementById('resultsSection');
+				resultsSection.scrollTop = resultsSection.scrollHeight;
+
+				// Re-enable send button
+				const sendButton = document.getElementById('sendButton');
+				sendButton.disabled = false;
+				isProcessing = false;
+			}, 4800);
+		}
+
+		// Initialize on page load
+		document.addEventListener('DOMContentLoaded', function () {
+			updateTextAreaForMode('prescriptive');
+		});
+
+		// Drag and drop functionality for the entire textarea area
+		const textareaContainer = document.querySelector('.text-area-container');
+
+		textareaContainer.addEventListener('dragover', (e) => {
+			e.preventDefault();
+			textareaContainer.style.borderColor = '#6fa8dc';
+			textareaContainer.style.backgroundColor = '#f8f9ff';
+		});
+
+		textareaContainer.addEventListener('dragleave', (e) => {
+			e.preventDefault();
+			textareaContainer.style.borderColor = '';
+			textareaContainer.style.backgroundColor = '';
+		});
+
+		textareaContainer.addEventListener('drop', (e) => {
+			e.preventDefault();
+			textareaContainer.style.borderColor = '';
+			textareaContainer.style.backgroundColor = '';
+			handleFiles(e.dataTransfer.files);
+		});
+
+		// Enter key handling
+		const questionInput = document.getElementById('questionInput');
+		questionInput.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter' && !e.shiftKey) {
+				e.preventDefault();
+				submitQuery();
+			}
+		});
+
+		function loadConversation(conversationId) {
+			// Clear current conversation
+			conversationHistory = [];
+			currentConversationId = conversationId;
+
+			// Update active state
+			document.querySelectorAll('.history-item').forEach(item => {
+				item.classList.remove('active');
+			});
+			document.getElementById(`history-item-${conversationId}`).classList.add('active');
+
+			// Hide greeting
+			document.getElementById('greetings').style.display = 'none';
+
+			// Show results section
+			const resultsSection = document.getElementById('resultsSection');
+			resultsSection.classList.add('show');
+
+			// Get stored conversation
+			const conversation = storedConversations[conversationId];
+
+			// Determine which content to show
+			let responseContent = '';
+			if (conversationId === 1) {
+				responseContent = document.getElementById('resultContentPapua').innerHTML;
+			} else if (conversationId === 2) {
+				responseContent = document.getElementById('resultContentKKB').innerHTML;
+			} else if (conversationId === 3) {
+				responseContent = document.getElementById('resultContentGAM').innerHTML;
+			}
+
+			// Add to conversation history
+			conversationHistory.push({
+				question: conversation.question,
+				response: responseContent,
+				attachments: conversation.attachments,
+				timestamp: new Date()
+			});
+
+			// Display the conversation
+			const historyContainer = document.getElementById('conversationHistory');
+			historyContainer.innerHTML = '';
+
+			const conversationItem = conversationHistory[0];
+			historyContainer.appendChild(displayConversationItem(conversationItem));
+
+			// Clear input
+			document.getElementById('questionInput').value = '';
+
+			// Scroll to top of results
+			resultsSection.scrollTop = 0;
+		}
+	</script>
 </body>
 
 </html>
